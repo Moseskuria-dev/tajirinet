@@ -189,27 +189,12 @@ body {
   /* No additional styles needed; button will inherit from btn-primary */
 }
 
-/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stack elements vertically */
-    height: auto; /* Allow height to adjust */
-  }
-
-  .left-side {
-    width: 100%; /* Full width for left side */
-    height: auto; /* Auto height */
-    clip-path: none; /* Remove trapezoid effect on mobile */
-    padding: 10px; /* Adjust padding for mobile */
+  .background-video {
+    display: none; /* Hide the video on mobile devices */
   }
 
   .right-side {
-    width: 100%; /* Full width for right side */
-    height: auto; /* Auto height */
-  }
-
-  .background-video {
-    height: auto; /* Allow height to adjust */
-    width: 100%; /* Full width on mobile */
+    background-color: black; /* Set a solid color or image for the background */
   }
 }
