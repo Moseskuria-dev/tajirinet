@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main App Home</title>
+    <title>TajiriNET</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -13,7 +13,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <h1>My App</h1>
+            <h1>TajiriNET</h1>
             <ul class="navbar-menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -25,12 +25,60 @@
     <!-- Main Container -->
     <div class="container">
         <div class="left-side">
-            <h1>Welcome to My App</h1>
-            <p>Explore the features and benefits of using our application.</p>
+            <h1>Welcome to TajiriNET</h1>
+            <p>Explore the features and benefits of using our products.</p>
+
+            <!-- New section with additional headings -->
+            <h2>Key Features</h2>
+            <ul>
+                <li>High Internet Speeds</li>
+                <li>Extremly Low Prices</li>
+                <li>Weekly Packages Available</li>
+            </ul>
+
+            <!-- Call-to-action buttons -->
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Learn More</a>
+                <a href="#" class="btn-secondary">Get Started</a>
+            </div>
         </div>
+
         <div class="right-side">
-            <img src="{% static 'images/background.jpg' %}" alt="Description of the image" class="trapezoid-image">
+            <video class="trapezoid-video" loop autoplay muted>
+                <source src="{% static 'videos/mastbuilder.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
+    <!-- Reach Us Section -->
+     <div class="reach-us-container">
+    <h2>Reach Us</h2>
+    <form class="reach-us-form">
+        <div>
+            <input type="text" placeholder="Your Name" required>
+            <span style="color: red;">*</span> <!-- Asterisk for required field -->
+        </div>
+        <div>
+            <input type="email" placeholder="Your Email" required>
+            <span style="color: red;">*</span> <!-- Asterisk for required field -->
+        </div>
+        <div>
+            <textarea placeholder="Your Message"></textarea> <!-- Message is optional -->
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+</div>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 TajiriNET. All rights reserved.</p>
+        <div class="footer-buttons">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Legal Notice</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>
 </body>
 </html>
