@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   height: 100vh; /* Full viewport height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Navigation Bar Styles */
@@ -36,24 +37,26 @@ body {
 .container {
   display: flex;
   position: relative;
-  height: calc(100vh - 60px); /* Full height minus navbar */
+  height: calc(136vh - 60px);
 }
 
-/* Left side styles (Trapezoid Shape with Background Image) */
+/* Left side element styles (Trapezoid Shape with Background Image) */
 .left-side {
   position: absolute; /* Use absolute positioning to overlap */
   background-color: black; /* Solid black */
   color: rgb(241, 236, 236);
   width: 65%; /* Left side takes up 60% of the width */
-  height: 93%; /* Full height */
+  height: 100%; /* Full height */
   clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%); /* Trapezoid shape for left side */
-  padding: 20px; /* Padding for content */
+  /*padding: 20px; /* Padding for content */
   z-index: 2; /* Ensure it's above the right side */
 }
 
 /* Right side styles (Trapezoid Shape) */
 .right-side {
   position: relative;
+  /*width: 35%; */
+  width: 100%;
   height: 100%; /* Full height */
   clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);  /*Trapezoid shape */
   background-color: black; /* Solid black */
