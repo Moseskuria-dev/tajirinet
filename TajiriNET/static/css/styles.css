@@ -1,10 +1,13 @@
-/* Make sure content doesn't overflow horizontally */
-img, table, div {
+/* Ensure content doesn't overflow horizontally */
+img,
+table,
+div {
   max-width: 100%;
   width: auto;
 }
+
 body {
-  margin: 0;
+  margin: 0; /* Remove default margin */
   font-family: Arial, sans-serif;
   height: 100vh; /* Full viewport height */
   overflow-x: hidden; /* Prevent horizontal overflow */
@@ -40,44 +43,46 @@ body {
   text-decoration: none;
 }
 
-/* Container for left and right sides */
 .container {
   display: flex;
   position: relative;
-  height: calc(100vh - 60px); /* Adjusted for footer */
+  height: 100vh; /* Full viewport height */
+  margin: 0;
 }
 
 /* Left side element styles */
 .left-side {
-  position: absolute; /* Use absolute positioning to overlap */
+  position: absolute; /* Position absolute to overlap */
   background-color: black; /* Solid black */
   color: rgb(241, 236, 236);
-  width: 65%; /* Left side takes up 60% of the width */
-  height: 91%; /* Full height */
+  width: 65%; /* Left side takes up 65% of the width */
+  height: 100%; /* Full height */
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%); /* Trapezoid shape for left side */
   padding: 20px; /* Padding for content */
   z-index: 2; /* Ensure it's above the right side */
+  box-sizing: border-box; /* Ensure padding does not affect width */
+  margin-left: -15px;
 }
 
 /* Right side styles */
 .right-side {
-  position: relative;
-  width: 100%;
+  position: relative; /* Position relative for background */
+  width: 100%; /* Right side takes up 35% of the width */
   height: 100%; /* Full height */
-  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);  /*Trapezoid shape */
-  background-color: black; /* Solid black */
+  left: 45%;
+  overflow: hidden; /* Hide overflow */
 }
 
-/* Styling for the trapezoid video */
-.trapezoid-video {
-  width: 100%; /* Full width inside the container */
-  height: 100%; /* Full height */
-  position: absolute;
-  top: 0px;
-  left: 370px;;
-  object-fit: cover; /* Ensure the video covers the entire area without distortion */
+/* Background video styling */
+.background-video {
+  position: absolute; /* Position absolute to fill the container */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Cover the entire area without distortion */
+  z-index: 1; /* Set lower z-index to be behind left side */
 }
-
 /* Headings and button styles */
 .left-side h2 {
   margin-top: 30px;
