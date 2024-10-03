@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--1ejx2_a@2u8gk8xfwon#*l%@v%ut@qc1sogs50nuuhd*#x$_l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mosedev.pythonanywhere.com']
+ALLOWED_HOSTS = ['mosedev.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -120,7 +120,7 @@ USE_TZ = True
 
 #BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     ]
