@@ -1,18 +1,15 @@
-/* Prevent horizontal overflow for all elements */
-img,
-table,
-div {
+/* Make sure content doesn't overflow horizontally */
+img, table, div {
   max-width: 100%;
   width: auto;
 }
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   height: 100vh; /* Full viewport height */
   overflow-x: hidden; /* Prevent horizontal overflow */
-  word-wrap: break-word; /* Handle text overflow */
-  word-break: break-word; /* Handle text overflow */
+  word-wrap: break-word; /* Added for text overflow */
+  word-break: break-word; /* Added for text overflow */
 }
 
 /* Navigation Bar Styles */
@@ -55,51 +52,29 @@ body {
   position: absolute; /* Use absolute positioning to overlap */
   background-color: black; /* Solid black */
   color: rgb(241, 236, 236);
-  width: 65%; /* Left side takes up 65% of the width */
+  width: 65%; /* Left side takes up 60% of the width */
   height: 91%; /* Full height */
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%); /* Trapezoid shape for left side */
   padding: 20px; /* Padding for content */
   z-index: 2; /* Ensure it's above the right side */
 }
 
-/* Responsive adjustments for left side */
-@media (max-width: 768px) {
-  .left-side {
-    width: 65%; /* Full width on smaller screens */
-    height: 93%; /* Auto height to fit content */
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); /* Adjust trapezoid */
-  }
-}
-
-@media (max-width: 480px) {
-  .left-side {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Full rectangle for very small screens */
-  }
-}
-
 /* Right side styles */
 .right-side {
   position: relative;
-  width: 135%;
+  width: 100%;
   height: 100%; /* Full height */
-  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); /* Trapezoid shape */
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);  /*Trapezoid shape */
   background-color: black; /* Solid black */
-}
-
-/* Responsive adjustments for right side */
-@media (max-width: 768px) {
-  .right-side {
-    display: none; /* Optionally hide on smaller screens */
-  }
 }
 
 /* Styling for the trapezoid video */
 .trapezoid-video {
-  width: 135%; /* Full width inside the container */
+  width: 100%; /* Full width inside the container */
   height: 100%; /* Full height */
   position: absolute;
-  top: 0;
-  left: 370px; /* Adjust position if needed */
+  top: 0px;
+  left: 370px;;
   object-fit: cover; /* Ensure the video covers the entire area without distortion */
 }
 
