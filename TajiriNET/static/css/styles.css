@@ -67,7 +67,7 @@ body {
 /* Right side styles */
 .right-side {
   position: relative; /* Position relative for background */
-  width: 100%; /* Right side takes up 35% of the width */
+  width: 94.5%; /* Right side takes up 35% of the width */
   height: 100%; /* Full height */
   left: 45%;
   overflow: hidden; /* Hide overflow */
