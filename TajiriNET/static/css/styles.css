@@ -110,6 +110,9 @@ body {
 /* CTA Buttons */
 .cta-buttons {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .cta-buttons a {
@@ -118,6 +121,7 @@ body {
   margin-right: 15px;
   border-radius: 5px;
   color: white;
+  width: auto;
 }
 
 .btn-primary {
@@ -138,7 +142,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: #5a6268; /* Darker on hover */
+  background-color: #649ac3; /* Darker on hover */
 }
 
 /* Footer Styles */
