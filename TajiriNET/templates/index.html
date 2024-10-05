@@ -6,23 +6,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TajiriNET</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <h1>TajiriNET</h1>
-            <ul class="navbar-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <h1>TajiriNET</h1>
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </nav>
-
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="nav-button" id="dropdown-home-button">Home</button>
+        <button class="nav-button" id="dropdown-about-button">About</button>
+        <button class="nav-button" id="dropdown-contact-button">Contact</button>
+    </div>
+</nav>
+    
     <!-- Main Container -->
     <div class="container">
         <div class="left-trapezoid">
@@ -61,23 +68,37 @@
             -->
 
     <!-- Reach Us Section -->
-    <div class="reach-us-container">
-        <h2>Reach Us</h2>
-        <form class="reach-us-form">
-            <div>
-                <input type="text" placeholder="Your Name" required>
-                <span style="color: red;">*</span> <!-- Asterisk for required field -->
-            </div>
-            <div>
-                <input type="email" placeholder="Your Email" required>
-                <span style="color: red;">*</span> <!-- Asterisk for required field -->
-            </div>
-            <div>
-                <textarea placeholder="Your Message"></textarea> <!-- Message is optional -->
-            </div>
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
+<div class="reach-us-container">
+    <h2>Reach Us</h2>
+    <form class="reach-us-form">
+        <div>
+            <input type="text" placeholder="Your Name" required>
+            <span style="color: red;">*</span> <!-- Asterisk for required field -->
+        </div>
+        <div>
+            <input type="email" placeholder="Your Email" required>
+            <span style="color: red;">*</span> <!-- Asterisk for required field -->
+        </div>
+        <div>
+            <textarea placeholder="Your Message"></textarea> <!-- Message is optional -->
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+
+    <!-- Social Media Handles -->
+    <div class="social-media">
+        <h3>Follow Us</h3>
+        <a href="#" target="_blank">
+            <img src="{% static 'images/fb.png' %}" alt="Facebook" class="social-icon"> Facebook
+        </a>
+        <a href="#" target="_blank">
+            <img src="{% static 'images/x.png' %}" alt="Twitter" class="social-icon"> Twitter
+        </a>
+        <a href="#" target="_blank">
+            <img src="{% static 'images/ig.png' %}" alt="Instagram" class="social-icon"> Instagram
+        </a>
     </div>
+</div>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -91,5 +112,7 @@
     </footer>
 
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script> <!-- Link your JavaScript file -->
 </body>
+
 </html>
