@@ -73,8 +73,8 @@ body {
   overflow: hidden; /* Hide overflow */
 }
 
-/* Background video styling */
-.background-video {
+/* Background image styling */
+.trapezoid-image {
   position: absolute; /* Position absolute to fill the container */
   top: 0;
   left: 0;
@@ -83,6 +83,20 @@ body {
   object-fit: cover; /* Cover the entire area without distortion */
   z-index: 1; /* Set lower z-index to be behind left side */
 }
+
+/* Commented-out video styling */
+/*
+.background-video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  object-fit: cover; 
+  z-index: 1;
+}
+*/
+
 /* Headings and button styles */
 .left-side h2 {
   margin-top: 30px;
@@ -190,8 +204,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  .background-video {
-    display: none; /* Hide the video on mobile devices */
+  .trapezoid-image {
+    display: none; /* Hide the image on mobile devices */
   }
 
   .right-side {
