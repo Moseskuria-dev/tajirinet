@@ -1,5 +1,6 @@
 /* Ensure content doesn't overflow horizontally */
 body {
+  font-size: 16px;
   margin: 0; /* Remove default margin */
   font-family: Arial, sans-serif;
   height: 100vh; /* Full viewport height */
@@ -7,6 +8,44 @@ body {
   word-wrap: break-word; /* Added for text overflow */
   word-break: break-word; /* Added for text overflow */
 }
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  body {
+      font-size: 9px; /* Smaller font size for mobile devices */
+  }
+
+  .content h1 {
+      font-size: 18px; /* Adjust as needed */
+  }
+
+  .content h2 {
+      font-size: 14px; /* Adjust as needed */
+  }
+
+  .content p {
+      font-size: 10px; /* Adjust as needed */
+  }
+}
+
+/* Default font size for the navbar */
+.navbar h1 {
+  font-size: 24px; /* Default size for larger screens */
+}
+
+/* Responsive font size for smaller screens */
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 20px; /* Adjust size for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar h1 {
+    font-size: 18px; /* Further adjust for very small screens */
+  }
+}
+
 
 /* Navigation Bar Styles */
 .navbar {
@@ -51,10 +90,27 @@ body {
   background-color: black; /* Black background for left trapezoid */
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%); /* Trapezoid shape */
   position: relative; /* For positioning inner content */
-  overflow-y: auto;
+  overflow: hidden;
   max-height: 100vh; /* Ensures the height is restricted */
+  padding: 20px;
+}
+/* Wrapper inside the trapezoid */
+.left-trapezoid .content {
+  height: 100%; /* Make the content fill the trapezoid */
+  overflow-y: scroll; /* Allow vertical scrolling */
+  padding-right: 0px; /* Add padding to avoid content touching the edge */
 }
 
+/* Optional: Hide scrollbar in Webkit browsers */
+.left-trapezoid .content::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar width */
+    background: transparent; /* Background color */
+}
+
+/* Optional: Hide scrollbar in Firefox */
+.left-trapezoid .content {
+    scrollbar-width: none; /* Remove scrollbar for Firefox */
+}
 .right-trapezoid {
   flex: 1; /* Half the width of the container */
   background-color: rgb(153, 177, 224); /* White background for right trapezoid */
@@ -103,6 +159,7 @@ body {
 }
 
 .left-side ul li {
+  font-size: 10px;
   color: #f1f1f1;
   margin-bottom: 10px;
 }
