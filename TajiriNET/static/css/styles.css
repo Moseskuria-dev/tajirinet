@@ -1,11 +1,4 @@
 /* Ensure content doesn't overflow horizontally */
-img,
-table,
-div {
-  max-width: 100%;
-  width: auto;
-}
-
 body {
   margin: 0; /* Remove default margin */
   font-family: Arial, sans-serif;
@@ -42,46 +35,46 @@ body {
   color: white;
   text-decoration: none;
 }
-
+/*main*/
 .container {
-  display: flex;
-  position: relative;
-  height: 100vh; /* Full viewport height */
-  margin: 0;
+    display: flex;
+    max-width: none; /* Remove the max-width constraint */
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    background-color: black; /* Black background for the entire container */
+    position: relative; /* Positioned relative to ensure content fills fully */
+    overflow: hidden; /* Ensure no overflow */
+ }
+
+.left-trapezoid {
+  flex: 1; /* Half the width of the container */
+  background-color: black; /* Black background for left trapezoid */
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%); /* Trapezoid shape */
+  position: relative; /* For positioning inner content */
+  overflow-y: auto;
+  max-height: 100vh; /* Ensures the height is restricted */
 }
 
-/* Left side element styles */
-.left-side {
-  position: absolute; /* Position absolute to overlap */
-  background-color: black; /* Solid black */
-  color: rgb(241, 236, 236);
-  width: 65%; /* Left side takes up 65% of the width */
-  height: 100%; /* Full height */
-  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%); /* Trapezoid shape for left side */
-  padding: 20px; /* Padding for content */
-  z-index: 2; /* Ensure it's above the right side */
-  box-sizing: border-box; /* Ensure padding does not affect width */
-  margin-left: -15px;
+.right-trapezoid {
+  flex: 1; /* Half the width of the container */
+  background-color: rgb(153, 177, 224); /* White background for right trapezoid */
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); /* Inverse trapezoid shape */
+  position: relative; /* For positioning inner content */
 }
 
-/* Right side styles */
-.right-side {
-  position: relative; /* Position relative for background */
-  width: 94.5%; /* Right side takes up 35% of the width */
-  height: 100%; /* Full height */
-  left: 45%;
-  overflow: hidden; /* Hide overflow */
+.content {
+  padding: 20px; /* Padding for content in the left trapezoid */
+  color: #fff; /* White text color for contrast */
+  position: relative; /* Positioning for text */
+  z-index: 1; /* Ensure content is above the background */
 }
 
-/* Background image styling */
 .trapezoid-image {
-  position: absolute; /* Position absolute to fill the container */
-  top: 0;
-  left: 0;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  object-fit: cover; /* Cover the entire area without distortion */
-  z-index: 1; /* Set lower z-index to be behind left side */
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Cover the entire area */
+  position: relative; /* Positioning for image */
+  z-index: 1; /* Ensure image is above background */
 }
 
 /* Commented-out video styling */
@@ -201,14 +194,4 @@ body {
 .reach-us-form button {
   margin-top: 10px; /* Margin above the button */
   /* No additional styles needed; button will inherit from btn-primary */
-}
-
-@media (max-width: 768px) {
-  .trapezoid-image {
-    display: none; /* Hide the image on mobile devices */
-  }
-
-  .right-side {
-    background-color: black; /* Set a solid color or image for the background */
-  }
 }
