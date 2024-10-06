@@ -13,7 +13,6 @@
 <body>
 
 <!-- Navbar -->
-<!-- Navbar -->
 <nav class="navbar">
     <div class="navbar-container">
         <h1>TajiriNET</h1>
@@ -25,8 +24,23 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu">
         <button class="nav-button" id="dropdown-home-button">Home</button>
-        <button class="nav-button" id="dropdown-about-button">About</button>
-        <button class="nav-button" id="dropdown-contact-button">Contact</button>
+        <!-- About button with dropdown buttons -->
+        <div class="nav-button about-button" id="dropdown-about-button">
+            About <span class="dropdown-indicator">&gt;</span> <!-- Added a span for styling -->
+            <div class="dropdown-buttons">
+                <a href="our-services.html">
+                    <button class="dropdown-nav-button">Who are we?</button>
+                </a>
+                <a href="our-products.html">
+                <button class="dropdown-nav-button">Our Products</button>
+                </a>
+                <!--button class="dropdown-nav-button">Team</button -->
+            </div>
+        </div>        
+        <a href="contact.html"> <!-- Link to the Contact page -->
+            <button class="nav-button" id="dropdown-contact-button">Contact</button>
+        </a>
+        
     </div>
 </nav>
     
@@ -66,8 +80,56 @@
                 Your browser does not support the video tag.
             </video>
             -->
+    
+  <!-- Features and Services Section -->
+<div class="features-services-section">
+    <h2>Our Features & Services</h2>
+    <div class="feature-item">
+        <h3>High Internet Speeds</h3>
+        <p>Experience lightning-fast internet connectivity for seamless browsing, streaming, and gaming.</p>
+    </div>
+    <div class="feature-item">
+        <h3>Extremely Low Prices</h3>
+        <p>Enjoy competitive pricing plans that fit your budget without compromising on quality.</p>
+    </div>
+    <div class="feature-item">
+        <h3>Weekly Packages Available</h3>
+        <p>Select from flexible weekly packages to suit your internet usage needs.</p>
+    </div>
+    <a href="our-services.html" class="read-more">Read More</a>
+</div>
+    
+     <!-- Testimonials Section -->
+<div class="testimonials-section">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-item">
+        <p>"TajiriNET has changed the way I connect to the internet! The speeds are incredible!"</p>
+        <h4>- John Doe</h4>
+        <h5>Software Engineer</h5>
+    </div>
+    <div class="testimonial-item">
+        <p>"Affordable prices and reliable service. I highly recommend TajiriNET!"</p>
+        <h4>- Jane Smith</h4>
+        <h5>Graphic Designer</h5>
+    </div>
+    <div class="testimonial-item">
+        <p>"The customer support is top-notch! They helped me set everything up in no time."</p>
+        <h4>- Michael Brown</h4>
+        <h5>Business Owner</h5>
+    </div>
+</div>
+     
+<!-- Call to Action Section -->
+<div class="cta-section">
+    <h2>Ready to Experience the Best Internet Service?</h2>
+    <p>Join us today and enjoy high-speed internet at unbeatable prices. Sign up now and get started!</p>
+    <div class="cta-buttons">
+        <a href="signup.html" class="cta-button">Sign Up</a>
+        <a href="contact.html" class="cta-button">Contact Us</a>
+    </div>
+</div>
 
-    <!-- Reach Us Section -->
+     <!-- Reach Us Section -->
 <div class="reach-us-container">
     <h2>Reach Us</h2>
     <form class="reach-us-form">

@@ -13,3 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// Function to handle the dropdown functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const aboutButton = document.getElementById('dropdown-about-button');
+    const dropdownButtons = document.querySelector('.dropdown-buttons');
+
+    // Show dropdown when About button is clicked
+    aboutButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent event from bubbling up
+        dropdownButtons.style.display = dropdownButtons.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Hide dropdown when clicking outside the About button
+    document.addEventListener('click', function (event) {
+        if (!aboutButton.contains(event.target) && !dropdownButtons.contains(event.target)) {
+            dropdownButtons.style.display = 'none';
+        }
+    });
+});
