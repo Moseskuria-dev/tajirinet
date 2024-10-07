@@ -209,18 +209,19 @@ body {
 .left-trapezoid .content {
     scrollbar-width: none; /* Remove scrollbar for Firefox */
 }
-.right-trapezoid {
-  flex: 1; /* Half the width of the container */
-  background-color: rgb(153, 177, 224); /* White background for right trapezoid */
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); /* Inverse trapezoid shape */
-  position: relative; /* For positioning inner content */
-}
 
 .content {
   padding: 20px; /* Padding for content in the left trapezoid */
   color: #fff; /* White text color for contrast */
   position: relative; /* Positioning for text */
   z-index: 1; /* Ensure content is above the background */
+}
+
+.right-trapezoid {
+  flex: 1; /* Half the width of the container */
+  background-color: rgb(153, 177, 224); /* White background for right trapezoid */
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); /* Inverse trapezoid shape */
+  position: relative; /* For positioning inner content */
 }
 
 .trapezoid-image {
@@ -231,20 +232,7 @@ body {
   z-index: 1; /* Ensure image is above background */
 }
 
-/* Commented-out video styling */
-/*
-.background-video {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100vw; 
-  height: 100vh; 
-  object-fit: cover; 
-  z-index: 1;
-}
-*/
-
-/* Headings and button styles */
+/* LEFT-Side Headings and button styles */
 .left-side h2 {
   margin-top: 30px;
   font-size: 24px;
@@ -322,7 +310,7 @@ body {
 .footer-buttons a:hover {
   text-decoration: underline; /* Underline on hover */
 }
-
+/*REACH US*/
 .reach-us-container {
   background-image: url('{% static "images/background-photo.jpg" %}'); /* Set the background image */
   background-size: cover; /* Cover the entire area */
@@ -347,6 +335,7 @@ body {
   border-radius: 5px; /* Rounded corners */
 }
 
+/*Our Socials*/
 .social-media {
   margin-top: 20px; /* Space above social media section */
   text-align: center; /* Center social media links */
@@ -387,6 +376,8 @@ body {
 }
 
 .feature-item {
+  display: flex; /* Use flexbox to align icon and text horizontally */
+  align-items: center; /* Center items vertically */
   margin-bottom: 15px; /* Space between feature items */
   padding: 10px; /* Padding around each feature item */
   background-color: #fff; /* White background for feature items */
@@ -394,11 +385,18 @@ body {
   border-radius: 5px; /* Rounded corners for feature items */
 }
 
-.feature-item h3 {
-  color: #3770ac; /* Color for feature item headings */
+.feature-icon {
+  width: 50px; /* Adjust width of the image */
+  height: 50px; /* Adjust height of the image */
+  margin-right: 15px; /* Space between image and text */
 }
 
-.feature-item p {
+.feature-text h3 {
+  color: #3770ac; /* Color for feature item headings */
+  margin: 0; /* Remove margin from the heading */
+}
+
+.feature-text p {
   color: #555; /* Dark gray color for feature item text */
 }
 
@@ -415,42 +413,20 @@ body {
 
 .read-more:hover {
   background-color: #0056b3; /* Darker blue on hover */
+  color: white; /* Keep text color white */
+  text-decoration: none; /* No underline */
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .features-services-section {
-      padding: 15px; /* Reduced padding on smaller screens */
-  }
-
   .feature-item {
-      padding: 8px; /* Reduced padding for feature items */
+      flex-direction: column; /* Stack icon and text vertically on smaller screens */
+      text-align: center; /* Center the content */
   }
 
-  .read-more {
-      padding: 8px 15px; /* Adjust button padding */
-      margin-top: 10px; /* Reduced margin on the button */
+  .feature-icon {
+      margin-bottom: 10px; /* Add margin below the image */
+      margin-right: 0; /* Remove margin on the right */
   }
-}
-
-@media (max-width: 576px) {
-  .features-services-section {
-      margin: 10px 0; /* Reduced margin for very small screens */
-  }
-
-  .feature-item {
-      margin-bottom: 10px; /* Reduced space between feature items */
-  }
-
-  .read-more {
-      width: 100%; /* Full width for the button on small screens */
-      text-align: center; /* Center the text inside the button */
-  }
-}
-
-.nav-button a {
-  text-decoration: none; /* Remove underline from links */
-  color: inherit; /* Inherit the color from the button */
 }
 /*Testimonials section*/
 .testimonials-section {

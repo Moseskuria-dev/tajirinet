@@ -1,0 +1,273 @@
+/* Reset some basic elements for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #eaeaea;
+}
+
+/* Section-Specific Containers */
+
+/* About Section Container */
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Team Section Container */
+.team-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Values Section Container */
+.values-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Contact Section Container */
+.contact-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Section Titles */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #3498db;
+    font-weight: bold;
+    position: relative;
+    padding: 20px;
+}
+
+h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #2c3e50;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+/* About Section */
+.about-section {
+    background-color: #ffffff;
+    padding: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section p {
+    font-size: 1.2em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #000000;
+}
+
+/* Team Section */
+.team-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: space-between; /* Ensures space between the members */
+    align-items: center; /* Aligns items vertically in the center */
+    flex-wrap: wrap; /* Ensures layout adjusts on smaller screens */
+}
+
+.team-member {
+    flex: 1 1 50%; /* Each team member takes 50% of the container */
+    max-width: 50%; /* Ensures a max width of 50% */
+    box-sizing: border-box; /* Includes padding and border in the width */
+    padding: 0 60px; /* Adds some horizontal padding */
+    text-align: center;
+}
+
+.team-photo {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.member-info h3 {
+    color: #ffcc00; /* Brighter heading color */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.member-info p {
+    color: #333;
+    font-size: 16px;
+}
+
+/* Values Section */
+.values-section {
+    background-color: #ffffff;
+    padding: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.values-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.value-item {
+    text-align: center;
+    padding: 20px;
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, and flex-basis */
+    max-width: 300px;
+}
+
+.value-item h3 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Contact Info. Section */
+.contact-section {
+    background-color: #3498db;
+    color: white;
+    padding: 40px 0;
+}
+
+.contact-section p {
+    padding-top: 200px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #eaeaea;
+    margin-bottom: 30px;
+}
+
+.contact-list {
+    padding-top: 150px;
+    list-style: none;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-list li {
+    font-size: 1.1em;
+    color: #eaeaea;
+    margin-bottom: 10px;
+}
+
+.contact-list a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.contact-list a:hover {
+    text-decoration: none;
+}
+
+/* Brighter Headings */
+h2 {
+    color: #000f04; /* Brighter heading color */
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #2591ea; /* Brighter sub-heading color */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.values-grid .value-item h3 {
+    color: #01030f; /* Brightened heading for values section */
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .team-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-member {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        max-width: 100%;
+        margin-bottom: 20px; /* Add some space between team members */
+        padding: 0 20px; /* Reduced padding for smaller screens */
+    }
+
+    .about-container,
+    .team-container,
+    .values-container,
+    .contact-container {
+        width: 95%;
+        padding: 20px 0;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .member-info h3 {
+        font-size: 1.3em;
+    }
+
+    .member-info p,
+    .value-item p,
+    .contact-section p,
+    .contact-list li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .team-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .container {
+        padding: 20px 0;
+    }
+}

@@ -8,6 +8,7 @@
     <title>TajiriNET</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -23,16 +24,18 @@
         </div>
     </div>
     <div class="dropdown-menu" id="dropdown-menu">
-        <button class="nav-button" id="dropdown-home-button">Home</button>
+        <a href="{% url 'homepage' %}">
+            <button class="nav-button" id="dropdown-home-button">Home</button>
+        </a>        
         <!-- About button with dropdown buttons -->
         <div class="nav-button about-button" id="dropdown-about-button">
             About <span class="dropdown-indicator">&gt;</span> <!-- Added a span for styling -->
             <div class="dropdown-buttons">
-                <a href="our-services.html">
-                    <button class="dropdown-nav-button">Who are we?</button>
+                <a href="{% url 'our-services' %}">
+                    <button class="dropdown-nav-button">Our Products</button>
                 </a>
-                <a href="our-products.html">
-                <button class="dropdown-nav-button">Our Products</button>
+                <a href="{% url 'our-company' %}">
+                <button class="dropdown-nav-button">Who Are We?</button>
                 </a>
                 <!--button class="dropdown-nav-button">Team</button -->
             </div>
@@ -43,7 +46,8 @@
         
     </div>
 </nav>
-    
+   
+{% block content %}
     <!-- Main Container -->
     <div class="container">
         <div class="left-trapezoid">
@@ -82,22 +86,36 @@
             -->
     
   <!-- Features and Services Section -->
-<div class="features-services-section">
+  <div class="features-services-section">
     <h2>Our Features & Services</h2>
+
     <div class="feature-item">
-        <h3>High Internet Speeds</h3>
-        <p>Experience lightning-fast internet connectivity for seamless browsing, streaming, and gaming.</p>
+        <img src="{% static 'images/high-speed.png' %}" alt="High Internet Speeds Icon" class="feature-icon">
+        <div class="feature-text">
+            <h3>High Internet Speeds</h3>
+            <p>Experience lightning-fast internet connectivity for seamless browsing, streaming, and gaming.</p>
+        </div>
     </div>
+
     <div class="feature-item">
-        <h3>Extremely Low Prices</h3>
-        <p>Enjoy competitive pricing plans that fit your budget without compromising on quality.</p>
+        <img src="{% static 'images/price-icon.png' %}" alt="Low Prices Icon" class="feature-icon">
+        <div class="feature-text">
+            <h3>Extremely Low Prices</h3>
+            <p>Enjoy competitive pricing plans that fit your budget without compromising on quality.</p>
+        </div>
     </div>
+
     <div class="feature-item">
-        <h3>Weekly Packages Available</h3>
-        <p>Select from flexible weekly packages to suit your internet usage needs.</p>
+        <img src="{% static 'images/package-icon.png' %}" alt="Weekly Packages Icon" class="feature-icon">
+        <div class="feature-text">
+            <h3>Weekly Packages Available</h3>
+            <p>Select from flexible weekly packages to suit your internet usage needs.</p>
+        </div>
     </div>
-    <a href="our-services.html" class="read-more">Read More</a>
+
+    <a href="{% url 'our-services' %}" class="read-more">Read More</a>
 </div>
+
     
      <!-- Testimonials Section -->
 <div class="testimonials-section">
@@ -160,8 +178,8 @@
             <img src="{% static 'images/ig.png' %}" alt="Instagram" class="social-icon"> Instagram
         </a>
     </div>
-</div>
-
+ </div>
+ {% endblock %}
     <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2024 TajiriNET. All rights reserved.</p>

@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}About Us - TajiriNET{% endblock %}
+
+{% block content %}
+<!-- Company Overview Section -->
+<section class="about-section">
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>At TajiriNET, we are committed to providing our customers with the best internet solutions tailored to their needs. Our core mission is to deliver reliable, high-speed internet services that keep you connected.</p>
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="team-section">
+    <div class="team-container">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="{% static 'images/team1.jpg' %}" alt="John Doe" class="team-photo">
+                <div class="member-info">
+                    <h3>John Doe</h3>
+                    <p>CEO</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'images/team1.jpg' %}" alt="Robert Brown" class="team-photo">
+                <div class="member-info">
+                    <h3>Robert Brown</h3>
+                    <p>Marketing Director</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Values Section -->
+<section class="values-section">
+    <div class="values-container">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>Customer Satisfaction</h3>
+                <p>We prioritize customer satisfaction above everything, ensuring that you are always connected with the best services.</p>
+            </div>
+            <div class="value-item">
+                <h3>Innovation</h3>
+                <p>Innovation drives us to provide cutting-edge internet technologies that meet modern needs.</p>
+            </div>
+            <div class="value-item">
+                <h3>Integrity</h3>
+                <p>We believe in doing business the right way, delivering services that are honest, fair, and transparent.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information Section -->
+<section class="contact-section">
+    <div class="contact-container">
+        <h2>Contact Information</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+        <ul class="contact-list">
+            <li>Email: <a href="mailto:info@tajirinet.com">info@tajirinet.com</a></li>
+            <li>Phone: +123-456-7890</li>
+            <li>Address: 123 TajiriNET St, Nairobi, Kenya</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
