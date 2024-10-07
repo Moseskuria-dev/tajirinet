@@ -1,0 +1,103 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Contact Us - TajiriNET{% endblock %}
+
+{% block content %}
+<!-- Contact Us Overview Section -->
+<section class="contact-overview-section">
+    <div class="contact-overview-container">
+        <h2>Get in Touch with Us</h2>
+        <p>We'd love to hear from you! Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.</p>
+    </div>
+</section>
+
+<!-- Contact Information Section -->
+<section class="contact-info-section">
+    <div class="contact-info-container">
+        <h2>Contact Information</h2>
+        <div class="contact-info-grid">
+            <div class="contact-info-item">
+                <h3>Email Us</h3>
+                <p><a href="mailto:info@tajirinet.com">info@tajirinet.com</a></p>
+            </div>
+            <div class="contact-info-item">
+                <h3>Call Us</h3>
+                <p>+123-456-7890</p>
+            </div>
+            <div class="contact-info-item">
+                <h3>Visit Us</h3>
+                <p>123 TajiriNET St,<br>Nairobi, Kenya</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="contact-form-container">
+        <h2>Send Us a Message</h2>
+        
+        <!-- Display Django Messages -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <form action="{% url 'send_message' %}" method="post" class="contact-form">
+            {% csrf_token %}
+            
+            <!-- Your Name -->
+            <div class="form-group">
+                <label for="id_name">Your Name</label>
+                <input type="text" id="id_name" name="name" placeholder="Enter your name" class="form-control" required>
+                {% if form.name.errors %}
+                    <div class="error">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <!-- Your Email -->
+            <div class="form-group">
+                <label for="id_email">Your Email</label>
+                <input type="email" id="id_email" name="email" placeholder="Enter your email" class="form-control" required>
+                {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <!-- Subject -->
+            <div class="form-group">
+                <label for="id_subject">Subject</label>
+                <input type="text" id="id_subject" name="subject" placeholder="Enter subject" class="form-control" required>
+                {% if form.subject.errors %}
+                    <div class="error">{{ form.subject.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <!-- Your Message -->
+            <div class="form-group">
+                <label for="id_message">Your Message</label>
+                <textarea id="id_message" name="message" rows="5" placeholder="Enter your message" class="form-control" required></textarea>
+                {% if form.message.errors %}
+                    <div class="error">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="nav-button">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2>Ready to Experience Reliable Internet?</h2>
+        <p>Join TajiriNET today and enjoy seamless connectivity with our top-tier internet packages. Contact us to get started!</p>
+        <a href="{% url 'our-services' %}" class="nav-button">View Our Services</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,188 @@
+/* Services Overview Section */
+.services-overview-section {
+    padding: 60px 0;
+    background-color: #f1f1f1;
+}
+
+.services-overview-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-overview-section h2 {
+    color: #040404; /* Bright heading color */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.services-overview-section p {
+    font-size: 1.2em;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pricing-section h2 {
+    color: #0a0a0b; /* Bright heading color */
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pricing-card {
+    background-color: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card h3 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.pricing-card .price {
+    font-size: 2em;
+    color: #908fe6;
+    margin-bottom: 20px;
+}
+
+.pricing-card .price span {
+    font-size: 0.6em;
+    color: #555;
+}
+
+.pricing-card .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.pricing-card .features li {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.pricing-card .features li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #3b320e;
+}
+
+.pricing-card .nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0015ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-card .nav-button:hover {
+    background-color: #6281d8;
+}
+
+/* Call to Action Section */
+.cta-section {
+    padding: 60px 0;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    color: #131311;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.cta-section .nav-button {
+    padding: 15px 30px;
+    background-color: #103154;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.cta-section .nav-button:hover {
+    background-color: #887eeb;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-overview-section,
+    .pricing-section,
+    .cta-section {
+        padding: 40px 20px;
+    }
+
+    .pricing-card {
+        width: 100%;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.5em;
+    }
+
+    .pricing-card .price {
+        font-size: 1.5em;
+    }
+
+    .cta-section h2 {
+        font-size: 2em;
+    }
+
+    .cta-section p {
+        font-size: 1em;
+    }
+}

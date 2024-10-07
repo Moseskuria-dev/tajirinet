@@ -1,7 +1,65 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block title %}Our Services - TajiriNET{% endblock %}
 
 {% block content %}
+<!-- Internet Services Overview Section -->
+<section class="services-overview-section">
+    <div class="services-overview-container">
+        <h2>Our Internet Services</h2>
+        <p>Experience high-speed and reliable internet tailored to your needs. At TajiriNET, we ensure seamless connectivity with our top-notch internet packages.</p>
+    </div>
+</section>
 
+<!-- Pricing Section -->
+<section class="pricing-section">
+    <div class="pricing-container">
+        <h2>Choose Your Package</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic Plan</h3>
+                <p class="price">2,000 Ksh <span>/ Month</span></p>
+                <ul class="features">
+                    <li>5 Mbps Speed</li>
+                    <li>Free Installation</li>
+                    <li>Free Switches & Routers</li>
+                    <li>Pay, Plug & Play</li>
+                </ul>
+                <a href="{% url 'subscribe' 'monthly' %}" class="nav-button">Choose Monthly</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Standard Plan</h3>
+                <p class="price">20,000 Ksh <span>/ Year</span></p>
+                <ul class="features">
+                    <li>5 Mbps Speed</li>
+                    <li>Free Installation</li>
+                    <li>Free Switches & Routers</li>
+                    <li>Pay, Plug & Play</li>
+                </ul>
+                <a href="{% url 'subscribe' 'yearly' %}" class="nav-button">Choose Yearly</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Weekly Plan</h3>
+                <p class="price">600 Ksh <span>/ Week</span></p>
+                <ul class="features">
+                    <li>5 Mbps Speed</li>
+                    <li>Free Installation</li>
+                    <li>Free Switches & Routers</li>
+                    <li>Pay, Plug & Play</li>
+                </ul>
+                <a href="{% url 'subscribe' 'weekly' %}" class="nav-button">Choose Weekly</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2>Ready to Get Started?</h2>
+        <p>Join thousands of satisfied customers enjoying seamless internet connectivity. Choose a package that suits your needs and experience the TajiriNET difference today!</p>
+        <a href="{% url 'contact' %}" class="nav-button">Contact Us</a>
+    </div>
+</section>
 {% endblock %}

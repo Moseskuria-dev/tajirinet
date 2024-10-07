@@ -546,3 +546,14 @@ body {
       font-size: 14px; /* Smaller font size for buttons */
   }
 }
+
+.navbar h1 a {
+  color: rgb(67, 207, 235);;  /* Retains the color of the surrounding text */
+  text-decoration: none;  /* Removes the underline */
+}
+
+/* Optional: Add hover effect for better user experience */
+.navbar h1 a:hover {
+  color: rgb(81, 54, 215);  /* Change to your desired hover color */
+  text-decoration: none;
+}
