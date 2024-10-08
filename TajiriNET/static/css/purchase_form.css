@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #0015ff;
+    outline: none;
+}
+
+/* Button Styles */
+.nav-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #0015ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #6281d8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .nav-button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"],
+    select {
+        font-size: 0.9em;
+    }
+
+    .nav-button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+/* Purchase_success Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Success Container */
+.success-container {
+    max-width: 600px; /* Set a max-width for larger screens */
+    margin: 40px auto; /* Center the container */
+    padding: 20px; /* Add padding around the container */
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center align text */
+}
+
+/* Headings */
+h2 {
+    color: #0a0a0b; /* Bright heading color */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+
+/* Paragraphs */
+p {
+    color: #333; /* Darker text color for paragraphs */
+    margin: 10px 0; /* Spacing above and below paragraphs */
+}
+
+/* Button Styles */
+.nav-button {
+    display: inline-block; /* Button displayed as inline block */
+    padding: 10px 15px; /* Padding for the button */
+    background-color: #0015ff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for buttons */
+    font-size: 16px; /* Font size for buttons */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.nav-button:hover {
+    background-color: #6281d8; /* Lighter blue on hover */
+}

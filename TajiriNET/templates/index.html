@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/product.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
 </head>
 <body>
 
@@ -19,16 +20,32 @@
 <nav class="navbar">
     <div class="navbar-container">
         <h1><a href="{% url 'homepage' %}">TajiriNET</a></h1>
+        
+        <!-- Status bar showing whether the user is signed in or not -->
+        <div class="navbar-status">
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.first_name }}!</p>
+                <form method="POST" action="{% url 'sign-out' %}" style="display: inline;">  <!-- Ensure the form is inline -->
+                    {% csrf_token %}
+                    <button type="submit" class="nav-button">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'sign-in' %}" class="nav-button">Sign In</a>
+                <a href="{% url 'sign-up' %}" class="nav-button">Sign Up</a>
+            {% endif %}
+        </div>
+
         <div class="navbar-toggle" id="navbar-toggle">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </div>
+    
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="{% url 'homepage' %}">
             <button class="nav-button" id="dropdown-home-button">Home</button>
-        </a>        
+        </a>  
         <!-- About button with dropdown buttons -->
         <div class="nav-button about-button" id="dropdown-about-button">
             About <span class="dropdown-indicator">&gt;</span> <!-- Added a span for styling -->
@@ -37,15 +54,13 @@
                     <button class="dropdown-nav-button">Our Products</button>
                 </a>
                 <a href="{% url 'our-company' %}">
-                <button class="dropdown-nav-button">Who Are We?</button>
+                    <button class="dropdown-nav-button">Who Are We?</button>
                 </a>
-                <!--button class="dropdown-nav-button">Team</button -->
             </div>
         </div>        
-        <a href="{% url 'contact'%}"> <!-- Link to the Contact page -->
+        <a href="{% url 'contact'%}">
             <button class="nav-button" id="dropdown-contact-button">Contact</button>
         </a>
-        
     </div>
 </nav>
    
@@ -68,7 +83,7 @@
                 <!-- Call-to-action buttons -->
                 <div class="cta-buttons">
                     <a href="{% url 'our-company' %}" class="btn-primary">Learn More</a>
-                    <a href="sign-in" class="btn-secondary">Get Started</a>
+                    <a href="{% if user.is_authenticated %}{% url 'purchasing_page' %}{% else %}{% url 'sign-up' %}?next={% url 'our-services' %}{% endif %}" class="btn-secondary">Get Started</a>
                 </div>
             </div>
         </div>

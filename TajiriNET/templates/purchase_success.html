@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Successful</title>
+    <link rel="stylesheet" href="{% static 'css/purchase_form.css' %}"> <!-- Link to your CSS -->
+</head>
+<body>
+    <div class="success-container"> <!-- Wrapper for styling -->
+        <h2>Purchase Successful!</h2>
+        <p>You have selected the <strong>{{ plan }}</strong> plan.</p>
+        <p>Your phone number is <strong>{{ phone }}</strong>.</p>
+        <p>Thank you for choosing our service!</p>
+        <a href="{% url 'homepage' %}" class="nav-button">Return to Home</a> <!-- Button to navigate back -->
+    </div>
+</body>
+</html>

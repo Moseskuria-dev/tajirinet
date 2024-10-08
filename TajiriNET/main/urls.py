@@ -3,6 +3,7 @@
 from django.urls import path
 from . import views
 from .views import send_message
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.index, name='homepage'),  # Map the root URL of core to the index view
@@ -13,6 +14,7 @@ urlpatterns = [
     path('send-message/', send_message, name='send_message'),
     path('sign-in/', views.sign_in, name='sign-in'),
     path('sign-up/', views.sign_up, name='sign-up'),
-    
-    
+    path('logout/', LogoutView.as_view(next_page='homepage'), name='sign-out'),
+   # path('admin-login/', views.admin_login, name='admin-login'),
 ]
+

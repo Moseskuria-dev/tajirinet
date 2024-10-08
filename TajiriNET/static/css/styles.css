@@ -172,6 +172,39 @@ body {
   transform: rotate(90deg); /* Rotate indicator on hover */
 }
 
+.navbar-status {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin-left: auto; /* Push it to the right */
+}
+
+.navbar-status p {
+  margin: 0 10px; /* Add spacing around the welcome message */
+}
+
+.navbar-status .nav-button {
+  margin-left: 10px; /* Add spacing between buttons */
+  font-size: 0.7em; /* Reduce font size to 0.7em */
+  text-decoration: none; /* Remove underline */
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* Remove border for button style */
+  cursor: pointer; /* Change cursor to pointer */
+  color: inherit; /* Inherit text color from parent */
+}
+
+/* Optional: Add hover effect for buttons */
+.navbar-status .nav-button:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.navbar-container {
+  padding: 10px; /* Optional padding for overall navbar */
+}
+
+.navbar-toggle {
+  margin-left: 20px; /* Space between the buttons and hamburger menu */
+}
+
 /*main*/
 .container {
     display: flex;
@@ -359,6 +392,7 @@ body {
 .social-media {
   margin-top: 20px; /* Space above social media section */
   text-align: center; /* Center social media links */
+  padding: 20px;
 }
 
 .social-media h3 {
@@ -366,7 +400,7 @@ body {
 }
 
 .social-media a {
-  color: white; /* White color for links */
+  color: rgb(26, 24, 24); /* White color for links */
   margin: 0 10px; /* Space between links */
   text-decoration: none; /* Remove underline */
 }

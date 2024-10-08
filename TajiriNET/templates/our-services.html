@@ -26,7 +26,7 @@
                     <li>Free Switches & Routers</li>
                     <li>Pay, Plug & Play</li>
                 </ul>
-                <a href="{% url 'subscribe' 'monthly' %}" class="nav-button">Choose Monthly</a>
+                <a href="{% url 'purchasing_page' %}?plan=basic" class="nav-button">Choose Monthly</a>
             </div>
             <div class="pricing-card">
                 <h3>Standard Plan</h3>
@@ -37,7 +37,7 @@
                     <li>Free Switches & Routers</li>
                     <li>Pay, Plug & Play</li>
                 </ul>
-                <a href="{% url 'subscribe' 'yearly' %}" class="nav-button">Choose Yearly</a>
+                <a href="{% url 'purchasing_page' %}?plan=standard" class="nav-button">Choose Yearly</a>
             </div>
             <div class="pricing-card">
                 <h3>Weekly Plan</h3>
@@ -48,7 +48,7 @@
                     <li>Free Switches & Routers</li>
                     <li>Pay, Plug & Play</li>
                 </ul>
-                <a href="{% url 'subscribe' 'weekly' %}" class="nav-button">Choose Weekly</a>
+                <a href="{% url 'purchasing_page' %}?plan=weekly" class="nav-button">Choose Weekly</a>
             </div>
         </div>
     </div>
