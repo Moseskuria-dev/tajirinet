@@ -67,7 +67,7 @@
     
                 <!-- Call-to-action buttons -->
                 <div class="cta-buttons">
-                    <a href="{% url 'our-services' %}" class="btn-primary">Learn More</a>
+                    <a href="{% url 'our-company' %}" class="btn-primary">Learn More</a>
                     <a href="sign-in" class="btn-secondary">Get Started</a>
                 </div>
             </div>
@@ -141,23 +141,40 @@
     </div>
 </div>
 
-     <!-- Reach Us Section -->
-<div class="reach-us-container">
-    <h2>Reach Us</h2>
-    <form class="reach-us-form">
-        <div>
-            <input type="text" placeholder="Your Name" required>
-            <span style="color: red;">*</span> <!-- Asterisk for required field -->
-        </div>
-        <div>
-            <input type="email" placeholder="Your Email" required>
-            <span style="color: red;">*</span> <!-- Asterisk for required field -->
-        </div>
-        <div>
-            <textarea placeholder="Your Message"></textarea> <!-- Message is optional -->
-        </div>
-        <button type="submit" class="btn-primary">Send Message</button>
-    </form>
+<!-- Reach Us Section -->
+     <div class="reach-us-container">
+        <h2>Send Us a Message</h2>
+        
+        <!-- Form for sending a message -->
+        <form class="contact-form" id="index-reach-us-form">
+            <!-- Your Name -->
+            <div class="form-group">
+                <label for="id_name">Your Name</label>
+                <input type="text" id="id_name" name="name" placeholder="Enter your name" class="form-control" required>
+            </div>
+            
+            <!-- Your Email -->
+            <div class="form-group">
+                <label for="id_email">Your Email</label>
+                <input type="email" id="id_email" name="email" placeholder="Enter your email" class="form-control" required>
+            </div>
+            
+            <!-- Subject -->
+            <div class="form-group">
+                <label for="id_subject">Subject</label>
+                <input type="text" id="id_subject" name="subject" placeholder="Enter subject" class="form-control" required>
+            </div>
+            
+            <!-- Your Message -->
+            <div class="form-group">
+                <label for="id_message">Your Message</label>
+                <textarea id="id_message" name="message" rows="5" placeholder="Enter your message" class="form-control" required></textarea>
+            </div>
+    
+            <!-- Submit Button -->
+            <button type="submit" class="nav-button">Send Message</button>
+        </form>
+    </div>
 
     <!-- Social Media Handles -->
     <div class="social-media">
