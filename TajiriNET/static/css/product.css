@@ -1,223 +1,120 @@
 /* Services Overview Section */
 .services-overview-section {
-    padding: 60px 0;
-    background-color: #f1f1f1;
-}
-
-.services-overview-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
-.services-overview-section h2 {
-    color: #040404; /* Bright heading color */
+.services-overview-container h2 {
     font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.services-overview-section p {
+.services-overview-container p {
     font-size: 1.2em;
-    color: #333;
-    max-width: 800px;
-    margin: 0 auto;
+    color: #555;
 }
 
 /* Pricing Section */
 .pricing-section {
-    padding: 60px 0;
+    padding: 50px 20px;
     background-color: #ffffff;
 }
 
-.pricing-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.pricing-container h2 {
     text-align: center;
-}
-
-.pricing-section h2 {
-    color: #0a0a0b; /* Bright heading color */
     font-size: 2.5em;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .pricing-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .pricing-card {
-    background-color: #f9f9f9;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 30px;
-    width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover effects */
+    background-color: #e2e2e2;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
 }
 
 .pricing-card:hover {
-    transform: translateY(-5px); /* Elevate card on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: scale(1.05);
 }
 
 .pricing-card h3 {
-    color: #2c3e50;
     font-size: 1.8em;
     margin-bottom: 15px;
 }
 
 .pricing-card .price {
-    font-size: 2em;
-    color: #908fe6;
-    margin-bottom: 20px;
-}
-
-.pricing-card .price span {
-    font-size: 0.6em;
-    color: #555;
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
 }
 
 .pricing-card .features {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin-bottom: 25px;
+    margin: 10px 0;
+    font-size: 1em;
 }
 
 .pricing-card .features li {
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
-}
-
-.pricing-card .features li::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: #3b320e;
+    margin: 8px 0;
 }
 
 .pricing-card .nav-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0015ff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 1.1em; /* Increased font size for readability */
-    margin-top: 15px; /* Added margin for spacing */
-}
-
-.pricing-card .nav-button:hover {
-    background-color: #6281d8;
-    transform: scale(1.05); /* Slightly enlarge button on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .pricing-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .pricing-card {
-        width: 80%;
-    }
-}
-
-@media (max-width: 576px) {
-    .pricing-card {
-        width: 100%;
-    }
-
-    .pricing-card h3 {
-        font-size: 1.5em;
-    }
-
-    .pricing-card .price {
-        font-size: 1.5em;
-    }
+    margin-top: 20px;
 }
 
 /* Call to Action Section */
 .cta-section {
-    padding: 60px 0;
-    background-color: #f1f1f1;
-    text-align: center;
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 50px 20px; /* Top & bottom padding */
+    text-align: center; /* Center align text */
+    border-top: 2px solid #007bff; /* Top border to match theme */
 }
 
 .cta-container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 800px; /* Limit width of the container */
+    margin: 0 auto; /* Center the container */
 }
 
 .cta-section h2 {
-    color: #131311;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2.5em; /* Large font size for the heading */
+    color: #101010; /* Darker text color for better contrast */
+    margin-bottom: 20px; /* Space below the heading */
 }
 
 .cta-section p {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 30px;
+    font-size: 1.2em; /* Slightly larger text for the paragraph */
+    color: #f5fafa; /* Gray color for paragraph text */
+    margin-bottom: 30px; /* Space below the paragraph */
 }
 
 .cta-section .nav-button {
-    padding: 15px 30px;
-    background-color: #103154;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
+    display: inline-block; /* Allow padding and margin */
+    padding: 15px 30px; /* Button padding */
+    font-size: 1.2em; /* Font size of button */
+    color: white; /* Button text color */
+    background-color: #007bff; /* Primary button color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
 .cta-section .nav-button:hover {
-    background-color: #887eeb;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Responsive Design */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .pricing-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .pricing-card {
-        width: 80%;
-    }
-}
-
-@media (max-width: 576px) {
-    .services-overview-section,
-    .pricing-section,
-    .cta-section {
-        padding: 40px 20px;
-    }
-
-    .pricing-card {
-        width: 100%;
-    }
-
-    .pricing-card h3 {
-        font-size: 1.5em;
-    }
-
-    .pricing-card .price {
-        font-size: 1.5em;
-    }
-
-    .cta-section h2 {
-        font-size: 2em;
-    }
-
-    .cta-section p {
-        font-size: 1em;
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
     }
 }

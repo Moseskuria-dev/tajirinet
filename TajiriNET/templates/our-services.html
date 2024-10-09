@@ -17,39 +17,21 @@
     <div class="pricing-container">
         <h2>Choose Your Package</h2>
         <div class="pricing-grid">
+            {% for plan in plans %}
             <div class="pricing-card">
-                <h3>Basic Plan</h3>
-                <p class="price">2,000 Ksh <span>/ Month</span></p>
+                <h3>{{ plan.name }}</h3>
+                <p class="price">{{ plan.price }} <span>/ {{ plan.duration }}</span></p>
                 <ul class="features">
-                    <li>5 Mbps Speed</li>
-                    <li>Free Installation</li>
-                    <li>Free Switches & Routers</li>
-                    <li>Pay, Plug & Play</li>
+                    <li>{{ plan.speed }}</li>
+                    <li>{{ plan.installation }}</li>
+                    <li>{{ plan.switches_and_routers }}</li>
+                    <li>{{ plan.payment_method }}</li>
                 </ul>
-                <a href="{% url 'purchasing_page' %}?plan=basic" class="nav-button">Choose Monthly</a>
+                <a href="{% url 'purchasing_page' %}?plan={{ plan.id }}" class="nav-button">Choose {{ plan.duration }}</a>
             </div>
-            <div class="pricing-card">
-                <h3>Standard Plan</h3>
-                <p class="price">20,000 Ksh <span>/ Year</span></p>
-                <ul class="features">
-                    <li>5 Mbps Speed</li>
-                    <li>Free Installation</li>
-                    <li>Free Switches & Routers</li>
-                    <li>Pay, Plug & Play</li>
-                </ul>
-                <a href="{% url 'purchasing_page' %}?plan=standard" class="nav-button">Choose Yearly</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Weekly Plan</h3>
-                <p class="price">600 Ksh <span>/ Week</span></p>
-                <ul class="features">
-                    <li>5 Mbps Speed</li>
-                    <li>Free Installation</li>
-                    <li>Free Switches & Routers</li>
-                    <li>Pay, Plug & Play</li>
-                </ul>
-                <a href="{% url 'purchasing_page' %}?plan=weekly" class="nav-button">Choose Weekly</a>
-            </div>
+            {% empty %}
+            <p>No pricing plans available at the moment.</p>
+            {% endfor %}
         </div>
     </div>
 </section>

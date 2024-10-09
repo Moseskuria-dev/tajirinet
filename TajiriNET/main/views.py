@@ -18,9 +18,6 @@ def our_services(request):
 def our_company(request):
     return render(request, 'our-company.html')
 
-def subscribe(request, package):
-    return redirect('contact')
-
 def contact(request):
     return render(request, 'contact.html')
 

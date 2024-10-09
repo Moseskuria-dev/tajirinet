@@ -5,21 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Form</title>
-    <link rel="stylesheet" href="{% static 'css/purchase_form.css' %}"> <!-- Link to your CSS -->
+    <link rel="stylesheet" href="{% static 'css/purchase_form.css' %}">
 </head>
 <body>
     <h2>Purchase Form</h2>
 
     {% if plan %}
         <p>You have selected the <strong>{{ plan }}</strong> plan.</p>
-        <form action="{% url 'confirm_purchase' %}" method="post">
+
+        <!-- Form to initiate the MPESA payment -->
+        <form action="{% url 'initiate_mpesa_payment' %}" method="post">
             {% csrf_token %}
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" required>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone_number" placeholder="07XXXXXXXX" required>
+            </div>
 
+            <!-- Pass the selected plan and amount -->
             <input type="hidden" name="plan" value="{{ plan }}">
-
-            <button type="submit" class="nav-button">Submit Purchase</button>
+            
+            <!-- Add pricing based on the selected plan -->
+            {% if plan == 'basic' %}
+                <input type="hidden" name="amount" value="2000">
+            {% elif plan == 'standard' %}
+                <input type="hidden" name="amount" value="20000">
+            {% elif plan == 'weekly' %}
+                <input type="hidden" name="amount" value="600">
+            {% endif %}
+            
+            <button type="submit" class="nav-button">Pay Now</button>
         </form>
     {% else %}
         <p>Please select your package:</p>
