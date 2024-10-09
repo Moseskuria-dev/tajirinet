@@ -14,7 +14,7 @@
         <p>You have selected the <strong>{{ plan }}</strong> plan.</p>
 
         <!-- Form to initiate the MPESA payment -->
-        <form action="{% url 'initiate_mpesa_payment' %}" method="post">
+        <form action="{% url 'lipa_na_mpesa_online' %}" method="post">
             {% csrf_token %}
             
             <div class="form-group">
