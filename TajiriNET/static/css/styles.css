@@ -28,30 +28,13 @@ body {
   }
 }
 
-/* Default font size for the navbar */
-.navbar h1 {
-  font-size: 24px; /* Default size for larger screens */
-}
-
-/* Responsive font size for smaller screens */
-@media (max-width: 768px) {
-  .navbar h1 {
-    font-size: 20px; /* Adjust size for smaller screens */
-  }
-}
-
-@media (max-width: 576px) {
-  .navbar h1 {
-    font-size: 18px; /* Further adjust for very small screens */
-  }
-}
-
-/* Navbar Styles */
+/* Existing Navbar Styles */
 .navbar {
   background-color: #333; /* Dark background */
   color: rgb(67, 207, 235);
   padding: 10px 20px;
-  position: relative; /* Position relative for dropdown positioning */
+  position: static; /* Position relative for dropdown positioning */
+  z-index: 5;
 }
 
 /* Navbar Container */
@@ -60,6 +43,7 @@ body {
   align-items: center; /* Center items vertically */
   justify-content: space-between; /* Space between title and buttons */
   width: 100%; /* Full width for navbar container */
+  padding: 10px; /* Optional padding for overall navbar */
 }
 
 /* Hamburger Menu Styles */
@@ -67,6 +51,8 @@ body {
   display: flex; /* Always show the hamburger menu */
   flex-direction: column; /* Stack lines vertically */
   cursor: pointer; /* Pointer cursor on hover */
+  margin-left: 20px; /* Space between the buttons and hamburger menu */
+  transition: transform 0.3s ease-in-out;
 }
 
 .navbar-toggle span {
@@ -74,19 +60,33 @@ body {
   height: 3px; /* Height of lines */
   width: 25px; /* Width of lines */
   margin: 3px 0; /* Space between lines */
+  transition: all 0.3s ease-in-out;
 }
 
-/* Dropdown Menu Styles */
+/* Hamburger menu to X when active */
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Center the dropdown menu and make it part of the flow */
 .dropdown-menu {
   display: none; /* Hide dropdown by default */
-  position: absolute; /* Positioning for dropdown */
-  top: 50px; /* Position below navbar */
-  /*right: 20px; /* Align to the right */
-  padding: 20px;
+  position: relative;
+  width: 100%; /* Full width dropdown */
   background-color: #333; /* Background color for dropdown */
   border-radius: 5px; /* Rounded corners */
   z-index: 10; /* Ensure dropdown is above other content */
   flex-direction: column; /* Stack dropdown items vertically */
+  align-items: center; /* Center items horizontally */
+  padding: 10px 0; /* Vertical padding */
 }
 
 /* Show dropdown when active */
@@ -103,75 +103,54 @@ body {
   margin: 5px; /* Space between buttons */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
+  width: 150px; /* Fixed width for consistency */
+  transition: background-color 0.3s ease;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navbar-buttons {
-      display: none; /* Hide buttons on small screens */
-  }
-}
-/* Style for the dropdown buttons */
-.dropdown-buttons {
-  display: none; /* Initially hide the buttons */
-  position: absolute;
-  background-color: #333;;
-  border: 8px solid #333;
-  padding: 10px;
-  z-index: 1000;
-  right: -245px; /* Align dropdown buttons to the right side */
-  top: 2%; /* Position it to a suitable height */
-  width: max-content; /* Adjust the width to fit the content */
-}
-
-/* Show the dropdown buttons on hover */
-.about-button:hover .dropdown-buttons {
-  display: block; 
-}
-
-/* Dropdown button styles */
-.dropdown-nav-button {
-  background-color: #3770ac; /* Button background color */
-  color: white; /* Text color */
-  border: none;
-  padding: 10px;
-  margin: 5px 0; /* Space between dropdown buttons */
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%; /* Full width for buttons */
-}
-
-/* Dropdown button hover effect */
-.dropdown-nav-button:hover {
+/* Button Hover Effect */
+.nav-button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .dropdown-buttons {
-      right: 0; /* Align dropdown buttons to the right side for smaller screens */
-      top: 100%; /* Keep it below the "About" button */
-      left: 5px;
-    }
+/* Responsive font size for the navbar */
+.navbar h1 {
+  font-size: 24px; /* Default size for larger screens */
 }
 
-@media (max-width: 576px) {
-  .dropdown-buttons {
-      right: -100px; /* Adjust positioning for very small screens if necessary */
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 20px; /* Adjust size for smaller screens */
+  }
+
+  /* Hide navbar-status on smaller screens to save space */
+  .navbar-status {
+    display: none;
+  }
+
+  /* Adjust dropdown-menu padding */
+  .dropdown-menu {
+    padding: 15px 0;
   }
 }
 
-.dropdown-indicator {
-  margin-left: 15px; /* Space between "About" and ">" */
-  font-weight: bold; /* Make the indicator bold */
-  color: #fff; /* Change color to match your theme */
-  transition: transform 0.2s; /* Smooth transition for hover effect */
+@media (max-width: 576px) {
+  .navbar h1 {
+    font-size: 18px; /* Further adjust for very small screens */
+  }
+
+  /* Adjust dropdown-menu padding for very small screens */
+  .dropdown-menu {
+    padding: 10px 0;
+  }
+
+  /* Adjust button width for very small screens */
+  .nav-button {
+    width: 120px;
+    padding: 8px 12px;
+  }
 }
 
-.about-button:hover .dropdown-indicator {
-  transform: rotate(90deg); /* Rotate indicator on hover */
-}
-
+/* Navbar Status Styles */
 .navbar-status {
   display: flex;
   align-items: center; /* Center items vertically */
@@ -184,141 +163,134 @@ body {
 
 .navbar-status .nav-button {
   margin-left: 10px; /* Add spacing between buttons */
-  font-size: 0.7em; /* Reduce font size to 0.7em */
+  font-size: 0.9em; /* Adjusted font size */
   text-decoration: none; /* Remove underline */
-  background-color: transparent; /* Ensure background is transparent */
+  background-color: transparent; /* Ensure background matches buttons */
   border: none; /* Remove border for button style */
   cursor: pointer; /* Change cursor to pointer */
-  color: inherit; /* Inherit text color from parent */
+  color: rgb(67, 207, 235); /* Text color */
 }
 
-/* Optional: Add hover effect for buttons */
 .navbar-status .nav-button:hover {
-  color: #007bff; /* Change color on hover */
+  background-color: none; /* Darker blue on hover */
 }
 
-.navbar-container {
-  padding: 10px; /* Optional padding for overall navbar */
-}
-
-.navbar-toggle {
-  margin-left: 20px; /* Space between the buttons and hamburger menu */
-}
-
-/*main*/
+/* Main container */
 .container {
-    display: flex;
-    max-width: none; /* Remove the max-width constraint */
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    background-color: black; /* Black background for the entire container */
-    position: relative; /* Positioned relative to ensure content fills fully */
-    overflow: hidden; /* Ensure no overflow */
- }
-
-.left-trapezoid {
-  flex: 1; /* Half the width of the container */
-  background-color: black; /* Black background for left trapezoid */
-  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%); /* Trapezoid shape */
-  position: relative; /* For positioning inner content */
-  overflow: hidden;
-  max-height: 100vh; /* Ensures the height is restricted */
-  padding: 20px;
-}
-/* Wrapper inside the trapezoid */
-.left-trapezoid .content {
-  height: 100%; /* Make the content fill the trapezoid */
-  overflow-y: scroll; /* Allow vertical scrolling */
-  padding-right: 0px; /* Add padding to avoid content touching the edge */
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  height: 85vh; /* Viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure no overflow */
 }
 
-/* Optional: Hide scrollbar in Webkit browsers */
-.left-trapezoid .content::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar width */
-    background: transparent; /* Background color */
+/* Background image styling */
+.background-image {
+  position: absolute; /* Position it as absolute */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width of container */
+  height: 100%; /* Full height of container */
+  object-fit: cover; /* Cover the entire container */
+  z-index: 1; /* Behind the overlay */
 }
 
-/* Optional: Hide scrollbar in Firefox */
-.left-trapezoid .content {
-    scrollbar-width: none; /* Remove scrollbar for Firefox */
-}
-
-.content {
-  padding: 20px; /* Padding for content in the left trapezoid */
-  color: #fff; /* White text color for contrast */
-  position: relative; /* Positioning for text */
-  z-index: 1; /* Ensure content is above the background */
-}
-
-.right-trapezoid {
-  flex: 1; /* Half the width of the container */
-  background-color: rgb(153, 177, 224); /* White background for right trapezoid */
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); /* Inverse trapezoid shape */
-  position: relative; /* For positioning inner content */
-}
-
-.trapezoid-image {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  object-fit: cover; /* Cover the entire area */
-  position: relative; /* Positioning for image */
-  z-index: 1; /* Ensure image is above background */
-}
-
-/* LEFT-Side Headings and button styles */
-.left-side h2 {
-  margin-top: 30px;
-  font-size: 24px;
-  color: #fff;
-}
-
-.left-side ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
-.left-side ul li {
-  font-size: 10px;
-  color: #f1f1f1;
-  margin-bottom: 10px;
-}
-
-/* CTA Buttons */
-.cta-buttons {
-  margin-top: 30px;
+/* Overlay container */
+.content-overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  color: #fff; /* White text */
+  padding: 20px 40px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 900px;
+  text-align: center;
+  z-index: 2; /* Above the background */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
 }
 
-.cta-buttons a {
+/* Typography */
+.content-overlay h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #007bff; /* Brand color */
+}
+
+.content-overlay p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #ccc; /* Light grey for paragraphs */
+  margin-bottom: 20px;
+}
+
+/* Lists */
+.content-overlay ul {
+  list-style: disc inside;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.content-overlay ul li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #eee; /* Slightly off-white text */
+}
+
+/* Call-to-action buttons */
+.cta-buttons {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px; /* Space above buttons */
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px 24px;
   text-decoration: none;
-  padding: 10px 20px;
-  margin-right: 15px;
+  color: #fff;
+  background-color: #007bff;
   border-radius: 5px;
-  color: white;
-  width: auto;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
 }
 
-.btn-primary {
-  background-color: #3770ac; /* Background color for primary button */
-  padding: 10px 20px; /* Consistent padding */
-  border-radius: 5px; /* Rounded corners */
-  color: white; /* Text color */
-  border: none; /* Remove default border */
-  cursor: pointer; /* Pointer cursor on hover */
-}
-
-.btn-primary:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+.btn-primary:hover, .btn-secondary:hover {
+  background-color: #0056b3;
 }
 
 .btn-secondary {
-  background-color: #6c757d; /* Secondary button color */
+  background-color: #00d1b2;
 }
 
 .btn-secondary:hover {
-  background-color: #649ac3; /* Darker on hover */
+  background-color: #00a28e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-overlay {
+      width: 95%; /* Slightly reduced width for small screens */
+  }
+
+  .content-overlay h1 {
+      font-size: 2em;
+  }
+
+  .content-overlay p {
+      font-size: 1em;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+      /* Override any unwanted styles */
+      max-width: none; /* Ensures full width */
+      width: 100vw; /* Full viewport width */
+      height: 85vh; /* Full viewport height */
+  }
 }
 
 /* Footer Styles */
@@ -601,13 +573,14 @@ body {
   }
 }
 
+/* Style for the h1 link */
 .navbar h1 a {
-  color: rgb(67, 207, 235);;  /* Retains the color of the surrounding text */
-  text-decoration: none;  /* Removes the underline */
+  color: rgb(67, 207, 235); /* Set the desired color */
+  text-decoration: none; /* Remove underline by default */
 }
 
-/* Optional: Add hover effect for better user experience */
+/* Ensure the hover effect doesn't add underline */
 .navbar h1 a:hover {
-  color: rgb(81, 54, 215);  /* Change to your desired hover color */
-  text-decoration: none;
+  color: rgb(67, 207, 235); /* Retain the color on hover */
+  text-decoration: none; /* Keep the underline removed */
 }

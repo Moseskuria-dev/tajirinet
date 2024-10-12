@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- Navbar --> 
 <nav class="navbar">
     <div class="navbar-container">
         <h1><a href="{% url 'homepage' %}">TajiriNET</a></h1>
@@ -25,7 +25,7 @@
         <div class="navbar-status">
             {% if user.is_authenticated %}
                 <p>Welcome, {{ user.first_name }}!</p>
-                <form method="POST" action="{% url 'sign-out' %}" style="display: inline;">  <!-- Ensure the form is inline -->
+                <form method="POST" action="{% url 'sign-out' %}" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit" class="nav-button">Logout</button>
                 </form>
@@ -35,6 +35,7 @@
             {% endif %}
         </div>
 
+        <!-- Hamburger Menu -->
         <div class="navbar-toggle" id="navbar-toggle">
             <span></span>
             <span></span>
@@ -42,23 +43,22 @@
         </div>
     </div>
     
+    <!-- Centered Dropdown Menu -->
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="{% url 'homepage' %}">
             <button class="nav-button" id="dropdown-home-button">Home</button>
         </a>  
-        <!-- About button with dropdown buttons -->
-        <div class="nav-button about-button" id="dropdown-about-button">
-            About <span class="dropdown-indicator">&gt;</span> <!-- Added a span for styling -->
-            <div class="dropdown-buttons">
-                <a href="{% url 'our-services' %}">
-                    <button class="dropdown-nav-button">Our Products</button>
-                </a>
-                <a href="{% url 'our-company' %}">
-                    <button class="dropdown-nav-button">Who Are We?</button>
-                </a>
-            </div>
-        </div>        
-        <a href="{% url 'contact'%}">
+        
+        <!-- Standalone About Us Link -->
+        <a href="{% url 'our-company' %}">
+            <button class="nav-button">About Us</button>
+        </a>
+        
+        <a href="{% url 'our-services' %}">
+            <button class="nav-button" id="dropdown-services-button">Our Products</button>
+        </a> 
+
+        <a href="{% url 'contact' %}">
             <button class="nav-button" id="dropdown-contact-button">Contact</button>
         </a>
     </div>
@@ -67,32 +67,28 @@
 {% block content %}
     <!-- Main Container -->
     <div class="container">
-        <div class="left-trapezoid">
-            <div class="content">
-                <h1>Welcome to TajiriNET</h1>
-                <p>Explore the features and benefits of using our products.</p>
+        <!-- Background image as an absolute positioned element -->
+        <img src="{% static 'images/bg.webp' %}" alt="Background Image" class="background-image">
     
-                <!-- New section with additional headings -->
-                <h2>Key Features</h2>
-                <ul>
-                    <li>High Internet Speeds</li>
-                    <li>Extremely Low Prices</li>
-                    <li>Weekly Packages Available</li>
-                </ul>
-    
-                <!-- Call-to-action buttons -->
-                <div class="cta-buttons">
-                    <a href="{% url 'our-company' %}" class="btn-primary">Learn More</a>
-                    <a href="{% if user.is_authenticated %}{% url 'purchasing_page' %}{% else %}{% url 'sign-up' %}?next={% url 'our-services' %}{% endif %}" class="btn-secondary">Get Started</a>
-                </div>
+        <!-- Overlay container with welcome information -->
+        <div class="content-overlay">
+            <h1>Welcome to TajiriNET</h1>
+            <h3></h3>
+            <ul>
+                <li>High-speed internet powered by Starlink satellites</li>
+                <li>No hardware installation costs – we take care of everything</li>
+                <li>Stable internet for all your devices: phones, tablets, TVs, and computers</li>
+                <li>Low-cost plans to suit every household’s needs</li>
+            </ul>
+            <p>Get connected today and experience the future of internet services with TajiriNET. Our team is ready to provide quick installations so you can enjoy high-speed internet without delays.</p>
+            
+            <!-- Call-to-action buttons -->
+            <div class="cta-buttons">
+                <a href="{% url 'our-company' %}" class="btn-primary">Learn More</a>
+                <a href="{% if user.is_authenticated %}{% url 'purchasing_page' %}{% else %}{% url 'sign-up' %}?next={% url 'our-services' %}{% endif %}" class="btn-secondary">Get Started</a>
             </div>
         </div>
-    
-        <div class="right-trapezoid">
-            <!-- Image replacing the video -->
-            <img class="trapezoid-image" src="{% static 'images/background.jpg' %}" alt="Image Placeholder" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-    </div>
+    </div>  
         
   <!-- Features and Services Section -->
   <div class="features-services-section">
