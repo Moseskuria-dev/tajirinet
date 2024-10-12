@@ -8,7 +8,12 @@
 <section class="about-section">
     <div class="about-container">
         <h2>About Us</h2>
-        <p>At TajiriNET, we are committed to providing our customers with the best internet solutions tailored to their needs. Our core mission is to deliver reliable, high-speed internet services that keep you connected.</p>
+        <p>TajiriNET is your trusted partner in accessing high-speed internet services powered by STARLINK technology. We believe in providing our customers with the best internet solutions tailored to their needs. Our core mission is to deliver reliable, high-speed internet services that keep you connected, no matter where you are.</p>
+        <p>With TajiriNET, you have the freedom to choose your plan according to your usage and budget. Our flexible pricing options are designed to cater to different households, ensuring everyone can enjoy seamless internet connectivity.</p>
+        <p>Get started today and experience the future of internet services with TajiriNET!</p>
+        <div class="button-container">
+            <a href="{% url 'our-services' %}" class="btn-primary">View Pricing Plans</a>
+        </div>
     </div>
 </section>
 
@@ -41,14 +46,17 @@
         <h2>Our Values</h2>
         <div class="values-grid">
             <div class="value-item">
+                <i class="fas fa-smile-beam value-icon"></i> <!-- Customer Satisfaction Icon -->
                 <h3>Customer Satisfaction</h3>
                 <p>We prioritize customer satisfaction above everything, ensuring that you are always connected with the best services.</p>
             </div>
             <div class="value-item">
+                <i class="fas fa-lightbulb value-icon"></i> <!-- Innovation Icon -->
                 <h3>Innovation</h3>
                 <p>Innovation drives us to provide cutting-edge internet technologies that meet modern needs.</p>
             </div>
             <div class="value-item">
+                <i class="fas fa-handshake value-icon"></i> <!-- Integrity Icon -->
                 <h3>Integrity</h3>
                 <p>We believe in doing business the right way, delivering services that are honest, fair, and transparent.</p>
             </div>
@@ -62,10 +70,11 @@
         <h2>Contact Information</h2>
         <p>If you have any questions or need assistance, feel free to reach out to us:</p>
         <ul class="contact-list">
-            <li>Email: <a href="mailto:info@tajirinet.com">info@tajirinet.com</a></li>
-            <li>Phone: +123-456-7890</li>
-            <li>Address: 123 TajiriNET St, Nairobi, Kenya</li>
+            <li><i class="fas fa-envelope value-icon"></i> Email: <a href="mailto:info@tajirinet.com">info@tajirinet.com</a></li>
+            <li><i class="fas fa-phone value-icon"></i> Phone: +123-456-7890</li>
+            <li><i class="fas fa-map-marker-alt value-icon"></i> Address: 123 TajiriNET St, Nairobi, Kenya</li>
         </ul>
     </div>
 </section>
+
 {% endblock %}

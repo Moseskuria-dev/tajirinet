@@ -10,43 +10,36 @@
 <body>
     <h2>Purchase Form</h2>
 
-    {% if plan %}
-        <p>You have selected the <strong>{{ plan }}</strong> plan.</p>
+{% if selected_plan %}
+    <p>You have selected the <strong>{{ selected_plan.name }}</strong> plan.</p>
 
-        <!-- Form to initiate the MPESA payment -->
-        <form action="{% url 'lipa_na_mpesa_online' %}" method="post">
-            {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone_number" placeholder="07XXXXXXXX" required>
-            </div>
+    <!-- Form to initiate the MPESA payment -->
+    <form action="{% url 'lipa_na_mpesa_online' %}" method="post">
+        {% csrf_token %}
 
-            <!-- Pass the selected plan and amount -->
-            <input type="hidden" name="plan" value="{{ plan }}">
-            
-            <!-- Add pricing based on the selected plan -->
-            {% if plan == 'basic' %}
-                <input type="hidden" name="amount" value="2000">
-            {% elif plan == 'standard' %}
-                <input type="hidden" name="amount" value="20000">
-            {% elif plan == 'weekly' %}
-                <input type="hidden" name="amount" value="600">
-            {% endif %}
-            
-            <button type="submit" class="nav-button">Pay Now</button>
-        </form>
-    {% else %}
-        <p>Please select your package:</p>
-        <form action="{% url 'purchasing_page' %}" method="get">
-            <select name="plan" required>
-                <option value="" disabled selected>Select a package</option>
-                <option value="basic">Basic Plan</option>
-                <option value="standard">Standard Plan</option>
-                <option value="weekly">Weekly Plan</option>
-            </select>
-            <button type="submit" class="nav-button">Proceed to Purchase</button>
-        </form>
-    {% endif %}
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone_number" placeholder="07XXXXXXXX" required>
+        </div>
+
+        <!-- Pass the selected plan and amount -->
+        <input type="hidden" name="plan" value="{{ selected_plan.name }}">
+        <input type="hidden" name="amount" value="{{ selected_plan.price }}">
+
+        <button type="submit" class="nav-button">Pay Now</button>
+    </form>
+{% else %}
+    <p>Please select your package:</p>
+    <form action="{% url 'purchasing_page' %}" method="get">
+        <select name="plan" required>
+            <option value="" disabled selected>Select a package</option>
+            {% for plan in plans %}
+                <option value="{{ plan.id }}">{{ plan.name }} - Kes {{ plan.price }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="nav-button">Proceed to Purchase</button>
+    </form>
+{% endif %}
+
 </body>
 </html>

@@ -15,48 +15,88 @@ body {
 /* Section-Specific Containers */
 
 /* About Section Container */
+.about-section {
+    background-color: #2c2c2c; /* Dark background color for contrast */
+    padding: 40px 20px; /* Padding around the container */
+    color: #ffffff; /* White text for readability */
+    position: relative; /* Set position relative for absolute positioning of button */
+}
+
 .about-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
+    max-width: 800px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the container */
+    padding-bottom: 50px; /* Add padding at the bottom to accommodate the button */
 }
 
-/* Team Section Container */
-.team-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
+.about-container h2 {
+    font-size: 2em; /* Heading font size */
+    margin-bottom: 20px; /* Spacing below heading */
+    text-align: center; /* Center the heading */
+    font-family: 'Arial', sans-serif; /* Change font style */
+    color: white;
 }
 
-/* Values Section Container */
-.values-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
+.about-container p {
+    font-size: 1.2em; /* Paragraph font size */
+    line-height: 1.5; /* Line height for readability */
+    margin-bottom: 20px; /* Spacing below paragraphs */
+    font-family: 'Georgia', serif; /* Change font style */
 }
 
-/* Contact Section Container */
-.contact-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
+/* Button container styles */
+.button-container {
+    position: absolute; /* Set position to absolute */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+}
+
+/* Button styles */
+.about-container .btn-primary {
+    padding: 12px 24px; /* Padding for the button */
+    background-color: #007bff; /* Button color */
+    color: #ffffff; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.about-container .btn-primary:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+/* Override styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 20px 10px; /* Reduce padding for smaller screens */
+    }
+
+    .about-container {
+        max-width: 100%; /* Allow full width for the container */
+    }
+
+    .about-container h2 {
+        font-size: 2.0em; /* Adjust heading size */
+        color: #ccc;
+        margin-bottom: 15px; /* Adjust spacing below heading */
+    }
+
+    .about-container p {
+        font-size: 1em; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line height */
+        margin-bottom: 15px; /* Adjust spacing below paragraphs */
+    }
+
+    .button-container {
+        justify-content: center; /* Center the button on smaller screens */
+    }
+
+    .about-container .btn-primary {
+        padding: 10px 20px; /* Adjust padding for the button */
+        font-size: 0.9em; /* Adjust font size for button */
+    }
 }
 
 /* Section Titles */
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #3498db;
-    font-weight: bold;
-    position: relative;
-    padding: 20px;
-}
-
 h2::after {
     content: '';
     width: 80px;
@@ -68,26 +108,26 @@ h2::after {
     padding: 5px;
 }
 
-/* About Section */
-.about-section {
-    background-color: #ffffff;
-    padding: 40px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.about-section p {
-    font-size: 1.2em;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #000000;
-}
-
 /* Team Section */
 .team-section {
     padding: 50px 0;
     background-color: #f9f9f9;
+}
+
+/* Team Section Container */
+.team-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.team-container h2 {
+    font-size: 2em; /* Heading font size */
+    margin-bottom: 20px; /* Spacing below heading */
+    text-align: center; /* Center the heading */
+    font-family: 'Arial', sans-serif; /* Change font style */
+    color: #000000; /* Brand color */
 }
 
 .team-grid {
@@ -123,36 +163,82 @@ h2::after {
     font-size: 16px;
 }
 
-/* Values Section */
+/* Values Section Styles */
 .values-section {
-    background-color: #ffffff;
-    padding: 40px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f7f9fc; /* Light background for contrast */
+    padding: 50px 20px; /* Padding around the section */
+    text-align: center; /* Centered text alignment */
 }
 
+/* Container for the values */
+.values-container {
+    max-width: 1200px; /* Maximum width for large screens */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Header Styles */
+.values-container h2 {
+    font-size: 2.5em; /* Large font size for the header */
+    color: #000000; /* Brand color */
+    margin-bottom: 30px; /* Space below the header */
+}
+
+/* Grid Styles */
 .values-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space out items evenly */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
+/* Individual Value Item Styles */
 .value-item {
-    text-align: center;
-    padding: 20px;
-    flex: 1 1 30%; /* Flex-grow, flex-shrink, and flex-basis */
-    max-width: 300px;
+    flex: 1 1 300px; /* Flex grow, shrink, and base width */
+    margin: 20px; /* Margin around each item */
+    padding: 20px; /* Padding inside the item */
+    background-color: #ffffff; /* White background for value items */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
 }
 
+/* Value Icon Styles */
+.value-icon {
+    font-size: 50px; /* Size of the icon */
+    color: #007bff; /* Color of the icon */
+    margin-bottom: 15px; /* Space below the icon */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Heading Styles within Value Item */
 .value-item h3 {
-    font-size: 1.5em;
-    color: #2c3e50;
-    margin-bottom: 15px;
+    font-size: 1.8em; /* Medium-large font size */
+    color: #333; /* Dark color for headings */
+    margin: 10px 0; /* Space above and below the heading */
 }
 
+/* Paragraph Styles within Value Item */
 .value-item p {
-    font-size: 1em;
-    color: #555;
+    font-size: 1em; /* Standard font size */
+    color: #666; /* Grey color for text */
+    line-height: 1.5; /* Improved line height for readability */
+}
+
+/* Hover Effect for Value Items */
+.value-item:hover {
+    transform: translateY(-5px); /* Slightly lift item on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .values-grid {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center items */
+    }
+
+    .value-item {
+        width: 80%; /* Make value items wider on small screens */
+    }
 }
 
 /* Contact Info. Section */
@@ -161,56 +247,66 @@ h2::after {
     color: white;
     padding: 40px 0;
 }
+/* Contact Section Styles */
+.contact-section {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 40px 20px; /* Padding for the section */
+}
 
-.contact-section p {
-    padding-top: 200px;
-    text-align: center;
-    font-size: 1.1em;
-    color: #eaeaea;
-    margin-bottom: 30px;
+.contact-container {
+    max-width: 800px; /* Max width for the content */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Center text */
+}
+
+.contact-container h2 {
+    font-size: 2.5em; /* Larger font size for heading */
+    color: #343a40; /* Dark color for heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.contact-container p {
+    font-size: 1.2em; /* Font size for paragraph */
+    color: #495057; /* Dark grey color for text */
+    margin-bottom: 30px; /* Space below paragraph */
 }
 
 .contact-list {
-    padding-top: 150px;
-    list-style: none;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
 }
 
 .contact-list li {
-    font-size: 1.1em;
-    color: #eaeaea;
-    margin-bottom: 10px;
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center vertically */
+    margin-bottom: 15px; /* Space between items */
+    font-size: 1.1em; /* Font size for list items */
+    color: #212529; /* Dark color for list items */
 }
 
-.contact-list a {
-    color: #ffffff;
-    text-decoration: underline;
+.value-icon {
+    margin-right: 10px; /* Space between icon and text */
+    color: #007bff; /* Color for icons */
+    font-size: 1.5em; /* Increase size of icons */
 }
 
-.contact-list a:hover {
-    text-decoration: none;
-}
-
-/* Brighter Headings */
-h2 {
-    color: #000f04; /* Brighter heading color */
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-h3 {
-    color: #2591ea; /* Brighter sub-heading color */
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.values-grid .value-item h3 {
-    color: #01030f; /* Brightened heading for values section */
-    font-size: 22px;
-    font-weight: bold;
+/* Responsive styles */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 20px 10px; /* Reduce padding on smaller screens */
+    }
+    
+    .contact-container h2 {
+        font-size: 2em; /* Smaller font size for heading */
+    }
+    
+    .contact-container p {
+        font-size: 1em; /* Smaller font size for paragraph */
+    }
+    
+    .contact-list li {
+        font-size: 1em; /* Smaller font size for list items */
+    }
 }
 
 /* Responsive Design */
@@ -237,7 +333,7 @@ h3 {
     .team-container,
     .values-container,
     .contact-container {
-        width: 95%;
+        width: 100%;
         padding: 20px 0;
     }
 

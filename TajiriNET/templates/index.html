@@ -8,7 +8,9 @@
     <title>TajiriNET</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/services.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plans.css' %}">
     <link rel="stylesheet" href="{% static 'css/product.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -147,7 +149,11 @@
     <h2>Ready to Experience the Best Internet Service?</h2>
     <p>Join us today and enjoy high-speed internet at unbeatable prices. Sign up now and get started!</p>
     <div class="cta-buttons">
-        <a href="signup.html" class="cta-button">Sign Up</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'our-services' %}" class="cta-button">Get Started</a>
+        {% else %}
+            <a href="{% url 'sign-up' %}" class="cta-button">Sign Up</a>
+        {% endif %}
         <a href="{% url 'contact' %}" class="cta-button">Contact Us</a>
     </div>
 </div>

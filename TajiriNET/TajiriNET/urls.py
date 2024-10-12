@@ -21,6 +21,6 @@ from mpesa.urls import mpesa_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('auth/', include('auth_purchase.urls')),
+    path('', include('auth_purchase.urls')),
     path('mpesa/', include(mpesa_urls)),
 ]

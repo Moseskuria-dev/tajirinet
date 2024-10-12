@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Plan
@@ -15,6 +15,11 @@ from .mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
 from .models import MpesaPayment
 
+def plans_view(request):
+    plans = Plan.objects.all()  # Fetch all plans from the database
+    return render(request, 'plans.html', {'plans': plans})  # Pass plans to the template
+
+
 def choose_package(request):
     # Check if the user is authenticated
     if request.user.is_authenticated:
@@ -26,9 +31,20 @@ def choose_package(request):
 
 @login_required  # Ensure the user is logged in
 def purchasing_page(request):
-    plan = request.GET.get('plan', None)  # Get the plan from the query parameters
+    plans = Plan.objects.all()
 
-    return render(request, 'purchase_form.html', {'plan': plan})
+    # Check if a plan is selected
+    plan_id = request.GET.get('plan')
+    selected_plan = None
+    if plan_id:
+        selected_plan = get_object_or_404(Plan, id=plan_id)
+
+    context = {
+        'plans': plans,
+        'selected_plan': selected_plan,
+    }
+    
+    return render(request, 'purchase_form.html', context)
 
 @login_required  # Ensure the user is logged in
 def confirm_purchase(request):
@@ -42,10 +58,6 @@ def confirm_purchase(request):
     # If not POST, render the form again
     plan = request.GET.get('plan', None)
     return render(request, 'purchase_form.html', {'plan': plan})
-
-def our_services(request):
-    plans = Plan.objects.all()  # Get all plans from the database
-    return render(request, 'our-services.html', {'plans': plans})
 
 def getAccessToken(request):
     consumer_key = 'cHnkwYIgBbrxlgBoneczmIJFXVm0oHky'

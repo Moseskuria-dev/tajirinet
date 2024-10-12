@@ -1,0 +1,14 @@
+<!-- plans.html -->
+<h2>Available Plans</h2>
+<div class="plans-container">
+    {% for plan in plans %}
+        <div class="plan-item">
+            <h3>{{ plan.name }}</h3>
+            <p>Price: Ksh {{ plan.price }}</p>
+            <p>Duration: {{ plan.duration }}</p>
+            {% if plan.description %}
+                <p>{{ plan.description }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

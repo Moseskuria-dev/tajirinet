@@ -14,4 +14,5 @@ urlpatterns = [
     path('c2b/confirmation', views.confirmation, name="confirmation"),
     path('c2b/validation', views.validation, name="validation"),
     path('c2b/callback', views.call_back, name="call_back"),
+    path('plans/', views.plans_view, name='plans'),
     ]

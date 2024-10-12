@@ -7,13 +7,16 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.contrib import messages
+from auth_purchase.models import Plan
+
 #from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'index.html')  # Ensure the template path matches your structure
 
 def our_services(request):
-    return render(request, 'our-services.html')
+    plans = Plan.objects.all()  # Get all plans from the database
+    return render(request, 'our-services.html', {'plans': plans})
 
 def our_company(request):
     return render(request, 'our-company.html')
