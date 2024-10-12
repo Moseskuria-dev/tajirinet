@@ -12,6 +12,9 @@ class Plan(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = 'Plan'
+        verbose_name_plural = 'Plans'
 
 
 class BaseModel(models.Model):
