@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Packages</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit_packages.css' %}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Internet Packages</h2>
+        
+        <!-- Button to add a new package -->
+        <a href="{% url 'add_package' %}" class="nav-button">Add Package</a>
+
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package Name</th>
+                        <th>Price</th>
+                        <th>Duration</th>
+                        <th>Speed</th>
+                        <th>Installation</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for plan in plans %}
+                    <tr>
+                        <td>
+                            <input type="text" name="name_{{ plan.id }}" value="{{ plan.name }}" required>
+                        </td>
+                        <td>
+                            <input type="number" name="price_{{ plan.id }}" value="{{ plan.price }}" required>
+                        </td>
+                        <td>
+                            <input type="text" name="duration_{{ plan.id }}" value="{{ plan.duration }}" required>
+                        </td>
+                        <td>
+                            <input type="text" name="speed_{{ plan.id }}" value="{{ plan.speed }}" required>
+                        </td>
+                        <td>
+                            <input type="text" name="installation_{{ plan.id }}" value="{{ plan.installation }}" required>
+                        </td>
+                        <td>
+                            <button type="submit" name="update" value="{{ plan.id }}">Update</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

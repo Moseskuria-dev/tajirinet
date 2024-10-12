@@ -8,6 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from auth_purchase.models import Plan
+from django.contrib.auth.decorators import user_passes_test
+
 
 #from django.contrib.auth.models import User
 
@@ -87,21 +89,57 @@ def sign_in(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-
-        # Authenticate user
+        
+        # Authenticate the user
         user = authenticate(request, username=email, password=password)
         
         if user is not None:
-            login(request, user)  # Log in the user
-
-            # Get the next URL from the query parameters, if provided
-            next_url = request.GET.get('next', 'homepage')  # Default redirect to purchasing_page
-            return redirect(next_url)  # Redirect to the next URL or default URL
+            login(request, user)
+            
+            # Check if the user is staff/admin
+            if user.is_staff or user.is_superuser:
+                return redirect('admin/')  # Redirect to the Django admin panel if admin
+            else:
+                # Redirect regular users to the home page or other specified URL
+                return redirect('homepage')  
         else:
-            # Invalid login credentials
-            messages.error(request, 'Invalid email or password.')
+            # Display an error message
+            messages.error(request, 'Invalid email or password. Please try again.')
             return render(request, 'sign-in.html')
+    else:
+        return render(request, 'sign-in.html')
 
-    # Render sign-in form on GET request
-    return render(request, 'sign-in.html')
+# Only allow access if the user is an admin
+def is_admin(user):
+    return user.is_staff
+
+@user_passes_test(is_admin)
+def edit_packages(request):
+    if request.method == 'POST':
+        # Iterate over all submitted plans and update their values
+        for plan in Plan.objects.all():
+            plan.name = request.POST.get(f'name_{plan.id}')
+            plan.price = request.POST.get(f'price_{plan.id}')
+            plan.duration = request.POST.get(f'duration_{plan.id}')
+            plan.speed = request.POST.get(f'speed_{plan.id}')
+            plan.installation = request.POST.get(f'installation_{plan.id}')
+            plan.save()
+
+        return redirect('edit_packages')  # Redirect to avoid resubmission
+
+    # If not a POST request, show the form with all plans
+    plans = Plan.objects.all()
+    return render(request, 'edit_packages.html', {'plans': plans})
+
+@user_passes_test(is_admin)
+def add_package(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        price = request.POST['price']
+        duration = request.POST['duration']
+        speed = request.POST['speed']
+        installation = request.POST['installation']
+        Plan.objects.create(name=name, price=price, duration=duration, speed=speed, installation=installation)
+        return redirect('edit_packages.html')  # Redirect to the edit packages page
+    return render(request, 'add-package.html')  # Create a form for adding a package
 
