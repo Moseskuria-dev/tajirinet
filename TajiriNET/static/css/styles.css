@@ -135,7 +135,7 @@ body {
 
 @media (max-width: 576px) {
   .navbar h1 {
-    font-size: 18px; /* Further adjust for very small screens */
+    font-size: 16px; /* Further adjust for very small screens */
   }
 
   /* Adjust dropdown-menu padding for very small screens */
@@ -183,6 +183,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
   overflow: hidden; /* Ensure no overflow */
 }
 

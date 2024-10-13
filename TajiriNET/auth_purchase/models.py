@@ -8,7 +8,7 @@ class Plan(models.Model):
     installation = models.CharField(max_length=100, default='Free Installation')
     switches_and_routers = models.CharField(max_length=100, default='Free Switches & Routers')
     payment_method = models.CharField(max_length=100, default='Pay, Plug & Play')
-    description = models.TextField(blank=True, null=True)  # Add this line
+    description = models.TextField()  # Add this line
 
     def __str__(self):
         return self.name

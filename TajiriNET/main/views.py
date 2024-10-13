@@ -116,18 +116,25 @@ def is_admin(user):
 @user_passes_test(is_admin)
 def edit_packages(request):
     if request.method == 'POST':
+        # Check if the delete action is requested
+        if 'delete' in request.POST:
+            package_id = request.POST.get('delete')
+            Plan.objects.filter(id=package_id).delete()  # Delete the package by ID
+
         # Iterate over all submitted plans and update their values
-        for plan in Plan.objects.all():
-            plan.name = request.POST.get(f'name_{plan.id}')
-            plan.price = request.POST.get(f'price_{plan.id}')
-            plan.duration = request.POST.get(f'duration_{plan.id}')
-            plan.speed = request.POST.get(f'speed_{plan.id}')
-            plan.installation = request.POST.get(f'installation_{plan.id}')
-            plan.save()
+        else:  # This is for the update action
+            for plan in Plan.objects.all():
+                plan.name = request.POST.get(f'name_{plan.id}')
+                plan.price = request.POST.get(f'price_{plan.id}')
+                plan.duration = request.POST.get(f'duration_{plan.id}')
+                plan.speed = request.POST.get(f'speed_{plan.id}')
+                plan.installation = request.POST.get(f'installation_{plan.id}')
+                plan.description = request.POST.get(f'description_{plan.id}')  # Capture description
+                plan.save()
 
-        return redirect('edit_packages')  # Redirect to avoid resubmission
+        return redirect('edit_packages')
 
-    # If not a POST request, show the form with all plans
+    # Logic to retrieve packages and render the template
     plans = Plan.objects.all()
     return render(request, 'edit_packages.html', {'plans': plans})
 
@@ -140,6 +147,6 @@ def add_package(request):
         speed = request.POST['speed']
         installation = request.POST['installation']
         Plan.objects.create(name=name, price=price, duration=duration, speed=speed, installation=installation)
-        return redirect('edit_packages.html')  # Redirect to the edit packages page
+        return redirect('edit_packages')  # Redirect to the edit packages page
     return render(request, 'add-package.html')  # Create a form for adding a package
 

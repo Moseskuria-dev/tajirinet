@@ -9,6 +9,15 @@
     <div class="services-overview-container">
         <h2>Our Internet Services</h2>
         <p>Experience high-speed and reliable internet tailored to your needs. At TajiriNET, we ensure seamless connectivity with our top-notch internet packages.</p>
+
+        <div class="plans-info">
+            <h3>Available Plans</h3>
+            <ul>
+                {% for plan in plans %}
+                <li><strong>{{ plan.name }}</strong>: {{ plan.duration }} package offering {{ plan.speed }} speed at {{ plan.price }}. {{ plan.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </section>
 

@@ -45,7 +45,8 @@ tr:hover {
 
 /* Input Styles */
 input[type="text"], 
-input[type="number"] {
+input[type="number"], 
+textarea {
     width: calc(100% - 24px); /* Full width minus padding */
     padding: 10px; /* Padding inside input fields */
     margin: 5px 0; /* Space above and below input fields */
@@ -63,10 +64,20 @@ button[type="submit"] {
     border-radius: 5px; /* Rounded corners for buttons */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth background color transition */
+    margin-top: 5px; /* Space above buttons */
 }
 
 button[type="submit"]:hover {
     background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Delete Button Styles */
+button[type="submit"][name="delete"] {
+    background-color: #dc3545; /* Red background for delete button */
+}
+
+button[type="submit"][name="delete"]:hover {
+    background-color: #c82333; /* Darker shade for delete button hover */
 }
 
 /* Add Package Button Styles */
@@ -84,3 +95,9 @@ button[type="submit"]:hover {
 .edit-packages .nav-button:hover {
     background-color: #218838; /* Darker shade for hover effect */
 }
+
+/* Form Styles */
+.edit-packages form {
+    display: inline; /* Ensure forms align inline with buttons */
+}
+
