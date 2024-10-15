@@ -25,6 +25,7 @@ def our_company(request):
 
 def contact(request):
     return render(request, 'contact.html')
+from django.utils import timezone  # Import timezone for getting the current time
 
 @csrf_exempt
 def send_message(request):
@@ -34,15 +35,24 @@ def send_message(request):
         email = data.get("email")
         name = data.get("name")  # Get the name from the data
 
-        # Create the email body with the user's name and email
-        email_body = f"Message from {name} <{email}>\n\n{message}"
+        # Get the current date and time
+        current_time = timezone.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # Define the recipients
+        recipients = ['moseswriter01@gmail.com', 'robert.wamwea2015@gmail.com']
+
+        # Create the email body with the user's name, email, current date/time, and message
+        email_body = f"Message from {name} <{email}>\n\n"
+        email_body += f"Sent on: {current_time}\n\n"
+        email_body += f"Message:\n{message}\n\n"
+        email_body += f"Recipients: {', '.join(recipients)}"  # Recipients after the message
 
         # Send the email
         send_mail(
-            'New message from website',
-            email_body,  # Use the new email body
+            'New message from tajirinet.com',
+            email_body,  # Use the updated email body
             'youremailexample@gmail.com',  # From email
-            ['moseswriter01@gmail.com'],  # To email
+            recipients,  # Recipients list
             fail_silently=False,
         )
         return JsonResponse({'status': 'success', 'message': 'Email sent!'})
