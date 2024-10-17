@@ -16,5 +16,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='homepage'), name='sign-out'),
     path('edit-packages/', views.edit_packages, name='edit_packages'),
     path('add-package/', views.add_package, name='add_package'),
+    path('homepage/', views.index, name='index'),
 ]
 

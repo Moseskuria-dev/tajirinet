@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TajiriNET</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">      
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/services.css' %}">
@@ -15,6 +16,18 @@
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+    <script>
+        const searchData = [
+            { title: "Home", url: "{% url 'homepage' %}" },
+            { title: "About Us", url: "{% url 'our-company' %}" },
+            { title: "Our Products", url: "{% url 'our-services' %}" },
+            { title: "Contact", url: "{% url 'contact' %}" },
+            { title: "Plans", url: "{% url 'plans' %}" },
+            { title: "Customer Support", url: "{% url 'contact' %}" },
+            // Add more items as necessary
+        ];
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
 
@@ -26,7 +39,7 @@
         <!-- Status bar showing whether the user is signed in or not -->
         <div class="navbar-status">
             {% if user.is_authenticated %}
-                <p>Welcome, {{ user.first_name }}!</p>
+                <p>Welcome {{ user.first_name }}!</p>
                 <form method="POST" action="{% url 'sign-out' %}" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit" class="nav-button">Logout</button>
@@ -37,6 +50,23 @@
             {% endif %}
         </div>
 
+        <!-- Search Bar with Icon -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search..." />
+            <button type="button" onclick="searchContent()">
+                <i class="fa fa-search"></i> <!-- Using Font Awesome for the search icon -->
+            </button>
+        </div>
+        
+        <!-- Modal for Search Results -->
+        <div id="searchModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                 <h2>Search Results</h2>
+                 <ul id="resultsList"></ul>
+             </div>
+        </div>
+
         <!-- Hamburger Menu -->
         <div class="navbar-toggle" id="navbar-toggle">
             <span></span>
@@ -44,7 +74,7 @@
             <span></span>
         </div>
     </div>
-    
+
     <!-- Centered Dropdown Menu -->
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="{% url 'homepage' %}">
@@ -70,7 +100,7 @@
     <!-- Main Container -->
     <div class="container">
         <!-- Background image as an absolute positioned element -->
-        <img src="{% static 'images/bg2.webp' %}" alt="Background Image" class="background-image">
+        <img src="{% static 'images/istockphoto.jpg' %}" alt="Background Image" class="background-image">
     
         <!-- Overlay container with welcome information -->
         <div class="content-overlay">
@@ -220,8 +250,10 @@
     </footer>
 
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/navbar.js' %}"></script> <!-- Link your JavaScript file -->
+    <script src="{% static 'js/navbar.js' %}"></script>
     <script src="{% static 'js/contact.js' %}"></script>
+    
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

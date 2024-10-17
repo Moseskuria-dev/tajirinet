@@ -152,7 +152,7 @@ body {
 
 /* Navbar Status Styles */
 .navbar-status {
-  display: flex;
+  display: inline-flex;
   align-items: center; /* Center items vertically */
   margin-left: auto; /* Push it to the right */
 }
@@ -175,11 +175,156 @@ body {
   background-color: none; /* Darker blue on hover */
 }
 
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .navbar-status {
+    flex-direction: column; /* Stack the items vertically */
+    align-items: flex-end; /* Align items to the right */
+    margin: 0; /* Remove margin */
+  }
+
+  .navbar-status p {
+    margin: 5px 0; /* Add space around the welcome message */
+    font-size: 0.8em; /* Smaller font size for smaller screens */
+  }
+
+  .navbar-status .nav-button {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 5px; /* Add spacing between buttons */
+    font-size: 0.8em; /* Slightly smaller button text */
+  }
+}
+
+/* Extra small screens (mobile) */
+@media (max-width: 480px) {
+  .navbar-status {
+    align-items: center; /* Center items on very small screens */
+  }
+
+  .navbar-status p {
+    font-size: 0.7em; /* Further reduce font size */
+  }
+
+  .navbar-status .nav-button {
+    font-size: 0.7em; /* Smaller button text for mobile */
+    padding: 5px; /* Add some padding for smaller screens */
+  }
+}
+
+/* Style for the search bar */
+.search-bar {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 8px;
+    border: none;
+    background-color: rgb(67, 207, 235); /* Same color as your buttons */
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: rgb(50, 180, 210);
+}
+
+.search-bar i {
+    font-size: 16px;
+}
+
+/* Hide the search bar input for smaller screens but keep the button visible */
+@media (max-width: 768px) {
+  .search-bar {
+      display: inline-block; /* Prevent flex layout issues */
+      width: auto; /* Make sure it's not too wide */
+  }
+
+  .search-bar input {
+      display: none; /* Hide the input field */
+  }
+
+  .search-bar button {
+      padding: 8px 12px; /* Adjust button padding */
+      font-size: 14px; /* Adjust button font size */
+  }
+}
+
+/* Further reduce size for extra small screens (phones) */
+@media (max-width: 480px) {
+  .search-bar button {
+      padding: 6px 10px; /* Reduce padding */
+      font-size: 12px; /* Smaller font size */
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; /* Centered horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px; /* Set a maximum width for larger screens */
+  position: relative; /* Position relative for positioning of close button */
+  top: 50%; /* Move down 50% of the viewport height */
+  transform: translateY(-50%); /* Adjust position to truly center vertically */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#resultsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#resultsList li {
+  padding: 10px;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#resultsList li:hover {
+  background-color: #f0f0f0; /* Highlight on hover */
+}
+
 /* Main container */
 .container {
   position: relative;
   width: 100vw; /* Full viewport width */
-  height: 85vh; /* Viewport height */
+  height: 100vh; /* Viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
