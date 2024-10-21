@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from auth_purchase.models import Plan
 from django.contrib.auth.decorators import user_passes_test
+from django.utils import timezone 
 
 
 #from django.contrib.auth.models import User
@@ -25,7 +26,7 @@ def our_company(request):
 
 def contact(request):
     return render(request, 'contact.html')
-from django.utils import timezone  # Import timezone for getting the current time
+ # Import timezone for getting the current time
 
 @csrf_exempt
 def send_message(request):
@@ -108,7 +109,7 @@ def sign_in(request):
             
             # Check if the user is staff/admin
             if user.is_staff or user.is_superuser:
-                return redirect('admin/')  # Redirect to the Django admin panel if admin
+                return redirect('admin')  # Redirect to the Django admin panel if admin
             else:
                 # Redirect regular users to the home page or other specified URL
                 return redirect('homepage')  

@@ -1,30 +1,34 @@
 /* Services Overview Section */
 .services-overview-section {
     padding: 50px 20px;
-    background-color: #f4f4f4;
+    background-color: #080808;
     text-align: center;
 }
 
-.services-overview-container h2 {
+.services-overview-container h2, h3 {
     font-size: 2.5em;
     margin-bottom: 10px;
+    color: white;
 }
-
+.services-overview-container ul{
+    color: white;
+}
 .services-overview-container p {
     font-size: 1.2em;
-    color: #555;
+    color: #fcfbfb;
 }
 
 /* Pricing Section */
 .pricing-section {
     padding: 50px 20px;
-    background-color: #ffffff;
+    background-color: #050404;
 }
 
 .pricing-container h2 {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 30px;
+    color: white;
 }
 
 .pricing-grid {
@@ -34,7 +38,7 @@
 }
 
 .pricing-card {
-    background-color: #e2e2e2;
+    background-color: #7b7878;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -53,7 +57,7 @@
 .pricing-card .price {
     font-size: 1.5em;
     margin: 10px 0;
-    color: #333;
+    color: #f3f7f2;
 }
 
 .pricing-card .features {
@@ -73,10 +77,10 @@
 
 /* Call to Action Section */
 .cta-section {
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #090a0a; /* Light gray background */
     padding: 50px 20px; /* Top & bottom padding */
     text-align: center; /* Center align text */
-    border-top: 2px solid #007bff; /* Top border to match theme */
+    /*border-top: 2px solid #007bff; /* Top border to match theme */
 }
 
 .cta-container {
@@ -86,7 +90,7 @@
 
 .cta-section h2 {
     font-size: 2.5em; /* Large font size for the heading */
-    color: #101010; /* Darker text color for better contrast */
+    color: #fdf6f6; /* Darker text color for better contrast */
     margin-bottom: 20px; /* Space below the heading */
 }
 

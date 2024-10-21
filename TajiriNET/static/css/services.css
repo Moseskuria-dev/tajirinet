@@ -111,7 +111,7 @@ h2::after {
 /* Team Section */
 .team-section {
     padding: 50px 0;
-    background-color: #f9f9f9;
+    background-color: #0b0b0b;
 }
 
 /* Team Section Container */
@@ -120,6 +120,7 @@ h2::after {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 0;
+    background-color: black;
 }
 
 .team-container h2 {
@@ -127,7 +128,7 @@ h2::after {
     margin-bottom: 20px; /* Spacing below heading */
     text-align: center; /* Center the heading */
     font-family: 'Arial', sans-serif; /* Change font style */
-    color: #000000; /* Brand color */
+    color: #ffffff; /* Brand color */
 }
 
 .team-grid {
@@ -159,13 +160,13 @@ h2::after {
 }
 
 .member-info p {
-    color: #333;
+    color: #eeebeb;
     font-size: 16px;
 }
 
 /* Values Section Styles */
 .values-section {
-    background-color: #f7f9fc; /* Light background for contrast */
+    background-color: #050505; /* Light background for contrast */
     padding: 50px 20px; /* Padding around the section */
     text-align: center; /* Centered text alignment */
 }
@@ -179,7 +180,7 @@ h2::after {
 /* Header Styles */
 .values-container h2 {
     font-size: 2.5em; /* Large font size for the header */
-    color: #000000; /* Brand color */
+    color: #f9f6f6; /* Brand color */
     margin-bottom: 30px; /* Space below the header */
 }
 
@@ -195,7 +196,7 @@ h2::after {
     flex: 1 1 300px; /* Flex grow, shrink, and base width */
     margin: 20px; /* Margin around each item */
     padding: 20px; /* Padding inside the item */
-    background-color: #ffffff; /* White background for value items */
+    background-color: #0a0a0a; /* White background for value items */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
@@ -212,14 +213,14 @@ h2::after {
 /* Heading Styles within Value Item */
 .value-item h3 {
     font-size: 1.8em; /* Medium-large font size */
-    color: #333; /* Dark color for headings */
+    color: #ffffff; /* Dark color for headings */
     margin: 10px 0; /* Space above and below the heading */
 }
 
 /* Paragraph Styles within Value Item */
 .value-item p {
     font-size: 1em; /* Standard font size */
-    color: #666; /* Grey color for text */
+    color: #f6f2f2; /* Grey color for text */
     line-height: 1.5; /* Improved line height for readability */
 }
 
@@ -242,14 +243,10 @@ h2::after {
 }
 
 /* Contact Info. Section */
-.contact-section {
-    background-color: #3498db;
-    color: white;
-    padding: 40px 0;
-}
 /* Contact Section Styles */
 .contact-section {
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #060606; /* Light background color */
+    color: white;
     padding: 40px 20px; /* Padding for the section */
 }
 
@@ -261,13 +258,13 @@ h2::after {
 
 .contact-container h2 {
     font-size: 2.5em; /* Larger font size for heading */
-    color: #343a40; /* Dark color for heading */
+    color: #f6f8fa; /* Dark color for heading */
     margin-bottom: 20px; /* Space below heading */
 }
 
 .contact-container p {
     font-size: 1.2em; /* Font size for paragraph */
-    color: #495057; /* Dark grey color for text */
+    color: #f7f7f8; /* Dark grey color for text */
     margin-bottom: 30px; /* Space below paragraph */
 }
 
@@ -281,7 +278,7 @@ h2::after {
     align-items: center; /* Center vertically */
     margin-bottom: 15px; /* Space between items */
     font-size: 1.1em; /* Font size for list items */
-    color: #212529; /* Dark color for list items */
+    color: #e8ecf0; /* Dark color for list items */
 }
 
 .value-icon {

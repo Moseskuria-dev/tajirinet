@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Plan
-import requests
 from django.conf import settings
+import requests
 import base64
 from datetime import datetime
 from django.http import JsonResponse
@@ -48,7 +48,7 @@ def purchasing_page(request):
 @login_required  # Ensure the user is logged in
 def confirm_purchase(request):
     if request.method == 'POST':
-        phone = request.POST.get('phone')
+        phone = request.POST.get('phone_number')
         plan = request.POST.get('plan')
         # Handle the purchase confirmation logic here
         # For example, save the purchase to the database or send a confirmation email
