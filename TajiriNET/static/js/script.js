@@ -4,6 +4,7 @@
 // Currently, it is empty.
 // script.js
 
+// Function to handle search
 function searchContent() {
     const input = document.getElementById("searchInput").value.toLowerCase();
     const resultsList = document.getElementById("resultsList");
@@ -50,6 +51,7 @@ function searchContent() {
     }
 }
 
+// Close modal function
 function closeModal() {
     const searchModal = document.getElementById("searchModal");
     searchModal.style.display = 'none'; // Hide modal
@@ -67,5 +69,13 @@ window.onclick = function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") {
         closeModal();
+    }
+});
+
+// Add event listener to trigger search when pressing "Enter"
+document.getElementById("searchInput").addEventListener('keydown', function(event) {
+    if (event.key === "Enter") {
+        searchContent(); // Call searchContent function
+        event.preventDefault(); // Prevent the default form submission behavior, if any
     }
 });

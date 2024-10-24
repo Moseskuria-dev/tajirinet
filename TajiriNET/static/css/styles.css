@@ -3,6 +3,7 @@ body {
   font-size: 16px;
   margin: 0; /* Remove default margin */
   font-family: Arial, sans-serif;
+  background-color: black !important;
   height: 100vh; /* Full viewport height */
   overflow-x: hidden; /* Prevent horizontal overflow */
   word-wrap: break-word; /* Added for text overflow */
@@ -435,7 +436,7 @@ body {
       /* Override any unwanted styles */
       max-width: none; /* Ensures full width */
       width: 100vw; /* Full viewport width */
-      height: 85vh; /* Full viewport height */
+      height: 100vh; /* Full viewport height */
   }
 }
 
